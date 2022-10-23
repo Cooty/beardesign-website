@@ -1,0 +1,23 @@
+# Ignore artifacts:
+coverage
+chart
+public
+# Ignore deployment and tooling related files
+.dockerignore
+.editorconfig
+.gitlab-ci.yml
+package.json
+package-lock.json
+Dockerfile
+README.md
+# Ignore SVGs
+*.svg
+# Ignore nuxt generated folder
+.nuxt
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
