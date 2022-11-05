@@ -1,6 +1,8 @@
 name: 'Deployment'
 
-on: workflow_dispatch
+on:
+  release:
+    types: ['published']
 
 jobs:
   deploy:
@@ -15,4 +17,3 @@ jobs:
           build_directory: '.output/public'
           build_command: 'npm run generate'
           node_version: '16.14.2'
-          NETLIFY_DEPLOY_TO_PROD: true
