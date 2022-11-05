@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: 'Deploy to Netlify'
-        uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        uses: jsmrcaga/action-netlify-deploy@v1.8.0
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           build_directory: '.output'
-          build_command: npm run generate,
+          build_command: 'npm run generate',
           node_version: '16.14.2'
           NETLIFY_DEPLOY_TO_PROD: true
