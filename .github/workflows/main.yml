@@ -1,0 +1,18 @@
+name: 'Deployment'
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    name: 'Deploy to Netlify'
+    steps:
+      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          build_directory: '.output',
+          build_command: npm run generate,
+          node_version: '16.14.2',
+          NETLIFY_DEPLOY_TO_PROD: true
