@@ -12,7 +12,7 @@ jobs:
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          build_directory: '.output'
+          build_directory: '.output/public'
           build_command: 'npm run generate'
           node_version: '16.14.2'
           NETLIFY_DEPLOY_TO_PROD: true
