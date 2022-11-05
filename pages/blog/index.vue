@@ -18,7 +18,12 @@
 </template>
 
 <script setup>
-
+useHead({
+    title: 'Blog',
+    meta: [
+        { name: 'description', content: 'This is where I write about web development, technology, JavaScript and other schenanigans' }
+    ]
+})
 </script>
 
 <style lang="scss" scoped>

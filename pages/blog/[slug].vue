@@ -14,6 +14,13 @@ const slug = ref<string>('')
 const route = useRoute()
 
 slug.value = route.params.slug as string
+
+useHead({
+    title: slug,
+    meta: [
+        { name: 'description', content: 'Some description from the DB' }
+    ]
+})
 </script>
 
 <style lang="scss" scoped>

@@ -4,3 +4,9 @@
         <NuxtLink to="/blog">Blog</NuxtLink>
     </div>
 </template>
+
+<script lang="ts" setup>
+useHead({
+    title: 'Tamás Kuti'
+})
+</script>

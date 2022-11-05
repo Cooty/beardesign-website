@@ -4,4 +4,13 @@ export default defineNuxtConfig({
     // TODO: Figure out how to work with stylelint and customize the rules
     failOnError: false,
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/styles/_colors.scss";',
+        },
+      },
+    },
+  },
 })
