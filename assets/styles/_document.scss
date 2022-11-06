@@ -1,0 +1,31 @@
+$text-color: $almost-black;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  min-height: 100vh;
+}
+
+html {
+  font-family: sans-serif;
+  color: $text-color;
+  font-size: 87.5%; // 14px
+  font-family: $copy-font-stack;
+
+  @media screen and (min-width: $md) {
+    font-size: 100%; // 16px
+  }
+}
+
+a {
+  color: $sky-blue;
+  text-decoration: none;
+
+  &:visited {
+    color: $sea-blue;
+  }
+}

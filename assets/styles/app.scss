@@ -1,17 +1,4 @@
-$text-color: $almost-black;
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body,
-html {
-  min-height: 100vh;
-}
-
-html {
-  font-family: sans-serif;
-  color: $text-color;
-  font-size: 62.5%;
-}
+@import 'custom-props';
+@import 'document';
+@import 'forms';
+@import 'typo';

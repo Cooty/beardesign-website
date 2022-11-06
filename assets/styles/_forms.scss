@@ -1,0 +1,8 @@
+input,
+button,
+select,
+option,
+textarea {
+  // needed so that iOS won't zoom in when focusing forms
+  font-size: 1.6rem;
+}

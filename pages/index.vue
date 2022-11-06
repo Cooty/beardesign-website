@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>BearDesign V2.0 coming soon!</p>
+        <h1>Hello World</h1>
         <NuxtLink to="/blog">Blog</NuxtLink>
     </div>
 </template>
