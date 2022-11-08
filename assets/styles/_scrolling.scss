@@ -1,0 +1,13 @@
+* {
+  scroll-behavior: smooth;
+}
+
+:root {
+  scrollbar-width: thin;
+  @include custom-scrollbars(
+    #{$gutter-base * 2},
+    rgba($almost-white, 0.8),
+    $asphalt-grey,
+    $default-radius
+  );
+}

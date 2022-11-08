@@ -1,0 +1,9 @@
+$gutter-base: 4px; // base for all gutters
+$xs-gutter: $gutter-base * 2;
+$sm-gutter: $gutter-base * 3;
+$md-gutter: $gutter-base * 4;
+$lg-gutter: $gutter-base * 5;
+
+$v-gutter: 2rem;
+
+$default-radius: $gutter-base * 2;

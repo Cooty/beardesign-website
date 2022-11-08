@@ -1,8 +1,8 @@
 <template>
     <header class="header">
         <a href="#main-content" class="sr-only">Skip to main content</a>
-        Header goes here!
         <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/blog">Blog</NuxtLink>
     </header>
 </template>
 
@@ -15,5 +15,6 @@ export default {
 <style lang="scss" scoped>
 .header {
     outline: 1px solid blue;
+    scroll-snap-align: start;
 }
 </style>

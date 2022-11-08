@@ -1,3 +1,17 @@
 :root {
   --color-sky-blue: #{$sky-blue};
+
+  --size-gutter: #{$xs-gutter};
+
+  @media screen and (min-width: #{$sm}) {
+    --size-gutter: #{$sm-gutter};
+  }
+
+  @media screen and (min-width: #{$md}) {
+    --size-gutter: #{$md-gutter};
+  }
+
+  @media screen and (min-width: #{$lg}) {
+    --size-gutter: #{$lg-gutter};
+  }
 }
