@@ -2,6 +2,7 @@
     <header class="header">
         <a href="#main-content" class="sr-only">Skip to main content</a>
         <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/about">About</NuxtLink>
         <NuxtLink to="/work">Work</NuxtLink>
         <NuxtLink to="/blog">Blog</NuxtLink>
     </header>
