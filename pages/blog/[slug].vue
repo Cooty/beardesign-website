@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <LayoutMain>
         <h1>
             This here is a blog post
         </h1>
         <p>
             The slug is: <code>{{ slug }}</code>
         </p>
-    </div>
+    </LayoutMain>
 </template>
 
 <script setup lang="ts">

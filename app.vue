@@ -1,8 +1,6 @@
 <template>
-  <LayoutHeader />
-  <LayoutMain>
-    <NuxtPage />
-  </LayoutMain>
+  <LayoutAppBar />
+  <NuxtPage />
   <LayoutFooter />
 </template>
 
@@ -27,14 +25,12 @@ useHead({
     },
     {
       rel: 'stylesheet',
-      media: 'print',
-      onload: 'this.media=\'all\'',
-      href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,800;1,800&display=swap',
+      media: 'all',
+      href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,400;1,800&display=swap',
     },
     {
       rel: 'stylesheet',
-      media: 'print',
-      onload: 'this.media=\'all\'',
+      media: 'all',
       href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap',
     }
   ]

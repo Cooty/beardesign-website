@@ -1,3 +1,7 @@
+@mixin fluid-font($font-size: 1rem, $vw-factor: 0.5) {
+  font-size: calc(#{$font-size} + #{$vw-factor}vw);
+}
+
 @mixin custom-scrollbars(
   $size: 10px,
   $foreground-color: #999,

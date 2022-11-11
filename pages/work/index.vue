@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <LayoutMain>
         <h1>
             This here is the Portfolio's index page
         </h1>
@@ -16,7 +16,7 @@
                 <NuxtLink to="/work/k-monitor-agrar">EU agricultural funds tracker for anti-corruption NGO</NuxtLink>
             </li>
         </ol>
-    </div>
+    </LayoutMain>
 </template>
 
 <script setup>

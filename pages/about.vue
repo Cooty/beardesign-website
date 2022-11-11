@@ -1,13 +1,5 @@
 <template>
-    <div>
+    <LayoutMain>
         <h1>About me</h1>
-    </div>
+    </LayoutMain>
 </template>
-
-<script setup lang="ts">
-
-</script>
-
-<style scoped lang="scss">
-
-</style>

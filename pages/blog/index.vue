@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <LayoutMain>
         <h1>
             This here is the Blog's index page
         </h1>
@@ -14,7 +14,7 @@
                 <NuxtLink to="/blog/third-post">Third post</NuxtLink>
             </li>
         </ol>
-    </div>
+    </LayoutMain>
 </template>
 
 <script setup>

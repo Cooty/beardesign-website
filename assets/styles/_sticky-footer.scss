@@ -3,6 +3,10 @@
   flex-direction: column;
   height: 100%;
 
+  @media screen and (min-width: $bp-navigation) {
+    padding-left: $app-bar-width;
+  }
+
   > main {
     flex: 1 0 auto;
   }

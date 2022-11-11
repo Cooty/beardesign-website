@@ -16,7 +16,11 @@ export default {
     background-blend-mode: color-burn;
     color: $almost-white;
     padding-top: $v-gutter * 2;
-    padding-bottom: $v-gutter * 2;
+    padding-bottom: calc(#{$v-gutter * 2} + #{$app-bar-height});
     scroll-snap-align: start;
+
+    @media screen and (min-width: $bp-navigation) {
+        padding-bottom: $v-gutter * 2;
+    }
 }
 </style>

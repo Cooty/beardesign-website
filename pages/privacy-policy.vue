@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <LayoutMain>
         <h1>Privacy Policy</h1>
-    </div>
+    </LayoutMain>
 </template>
 
 <script setup lang="ts">

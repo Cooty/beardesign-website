@@ -1,17 +1,27 @@
 :root {
-  --color-sky-blue: #{$sky-blue};
-
-  --size-gutter: #{$xs-gutter};
+  --bd-size-gutter: #{$xs-gutter};
 
   @media screen and (min-width: #{$sm}) {
-    --size-gutter: #{$sm-gutter};
+    --bd-size-gutter: #{$sm-gutter};
   }
 
   @media screen and (min-width: #{$md}) {
-    --size-gutter: #{$md-gutter};
+    --bd-size-gutter: #{$md-gutter};
   }
 
   @media screen and (min-width: #{$lg}) {
-    --size-gutter: #{$lg-gutter};
+    --bd-size-gutter: #{$lg-gutter};
   }
+
+  --bd-about-gradient: linear-gradient(45deg, #{$sea-blue}, #{$sky-blue});
+
+  --bd-work-gradient: linear-gradient(
+    45deg,
+    #{$chocolate-brown},
+    #{$grizzly-brown}
+  );
+
+  --bd-blog-gradient: linear-gradient(45deg, #{$misty-grey}, #{$almost-white});
+
+  --bd-referrals-gradient: linear-gradient(45deg, #{$redish-brown}, #{$orange});
 }
