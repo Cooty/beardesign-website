@@ -1,6 +1,14 @@
 import { title, description, keywords } from './content/global/meta.json'
 
-export default defineAppConfig({
+export interface BDAppConfig {
+  title?: string
+  titleSeparator?: string
+  description?: string
+  keywords?: string
+  themeColor?: string
+}
+
+export default defineAppConfig<BDAppConfig>({
   title,
   titleSeparator: '•',
   description,

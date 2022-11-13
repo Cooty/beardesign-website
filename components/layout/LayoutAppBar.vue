@@ -9,6 +9,7 @@
             <NuxtLink to="/work" class="main-menu-link work"><span class="link-text">{{ work }}</span></NuxtLink>
             <NuxtLink to="/blog" class="main-menu-link blog"><span class="link-text">{{ blog }}</span></NuxtLink>
         </nav>
+        <ThemeSwitcher />
     </header>
 </template>
 
@@ -44,6 +45,7 @@ export default {
     flex-wrap: nowrap;
     align-items: center;
     font-family: $header-font-stack;
+    padding-right: $gutter-base * 2;
 
     @media screen and (min-width: $bp-navigation) {
         left: 0;
@@ -55,6 +57,8 @@ export default {
         flex-wrap: wrap;
         backdrop-filter: unset;
         background-color: var(--bd-theme-nav-bg);
+        padding-right: 0;
+        padding-bottom: $gutter-base * 2;
     }
 }
 

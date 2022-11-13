@@ -6,15 +6,26 @@
 
 <script lang='ts' setup>
 import '~/assets/styles/app.scss'
+import { BDAppConfig } from './app.config';
+import Themes from './types/Themes.type';
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as BDAppConfig
+const theme = useTheme()
+
+onMounted(() => {
+  const savedTheme = localStorage.getItem('_bd-theme') as Themes
+
+  if (savedTheme) {
+    theme.value = JSON.parse(savedTheme)
+  }
+})
 
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} ${appConfig.titleSeparator} ${appConfig.title}` : appConfig.title;
   },
   bodyAttrs: () => ({
-    class: 'dark'
+    class: theme
   }),
   meta: [
     { name: 'description', content: appConfig.description },
