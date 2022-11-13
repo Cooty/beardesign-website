@@ -32,7 +32,8 @@ export default {
 <style lang="scss" scoped>
 .app-bar {
     position: fixed;
-    background-color: rgba($steel-blue, 0.85);
+    z-index: $z-top;
+    background-color: var(--bd-theme-nav-bg-opaque);
     left: 0;
     right: 0;
     bottom: 0;
@@ -53,21 +54,21 @@ export default {
         flex-direction: column;
         flex-wrap: wrap;
         backdrop-filter: unset;
-        background-color: $steel-blue;
+        background-color: var(--bd-theme-nav-bg);
     }
 }
 
 .home-link {
     display: block;
     height: 100%;
-    background-color: $almost-black;
+    background-color: var(--bd-theme-logo-bg);
     padding: $gutter-base $gutter-base * 3;
     flex: 0;
     transition: background-color 0.3s ease-in-out;
 
     &:hover,
     &:focus {
-        background-color: $almost-white;
+        background-color: var(--bd-theme-logo-active-bg);
     }
 
     @media screen and (min-width: $bp-navigation) {
@@ -147,19 +148,19 @@ export default {
 
         &.about {
             &::after {
-                background: var(--bd-about-gradient);
+                background: var(--bd-theme-about-gradient);
             }
         }
 
         &.work {
             &::after {
-                background: var(--bd-work-gradient);
+                background: var(--bd-theme-work-gradient);
             }
         }
 
         &.blog {
             &::after {
-                background: var(--bd-blog-gradient);
+                background: var(--bd-theme-blog-gradient);
             }
         }
     }

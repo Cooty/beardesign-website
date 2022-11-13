@@ -1,8 +1,8 @@
-$text-color: $almost-black;
-
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--bd-theme-body-bg);
+  color: var(--bd-theme-text-color);
 }
 
 * {
@@ -15,8 +15,6 @@ html {
 }
 
 html {
-  font-family: sans-serif;
-  color: $text-color;
   font-size: 87.5%; // 14px
   font-family: $copy-font-stack;
 
@@ -26,10 +24,10 @@ html {
 }
 
 a {
-  color: $sky-blue;
+  color: var(--bd-theme-link-color);
   text-decoration: none;
 
   &:visited {
-    color: $sea-blue;
+    color: var(--bd-theme-link-visited-color);
   }
 }

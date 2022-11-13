@@ -12,16 +12,4 @@
   @media screen and (min-width: #{$lg}) {
     --bd-size-gutter: #{$lg-gutter};
   }
-
-  --bd-about-gradient: linear-gradient(45deg, #{$sea-blue}, #{$sky-blue});
-
-  --bd-work-gradient: linear-gradient(
-    45deg,
-    #{$chocolate-brown},
-    #{$grizzly-brown}
-  );
-
-  --bd-blog-gradient: linear-gradient(45deg, #{$misty-grey}, #{$almost-white});
-
-  --bd-referrals-gradient: linear-gradient(45deg, #{$redish-brown}, #{$orange});
 }

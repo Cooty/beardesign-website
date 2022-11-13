@@ -1,0 +1,75 @@
+body {
+  &.dark {
+    --bd-theme-body-bg: #{$asphalt-grey};
+    --bd-theme-text-color: #{$almost-white};
+    --bd-theme-link-color: #{$sea-blue};
+    --bd-theme-link-visited-color: #{$sky-blue};
+    --bd-theme-footer-background-blend-mode: color-burn;
+    --bd-theme-about-heading-color: #{$sea-blue};
+    --bd-theme-work-heading-color: #{$chocolate-brown};
+    --bd-theme-blog-heading-color: #{$misty-grey};
+    --bd-theme-referrals-heading-color: #{$redish-brown};
+    --bd-theme-about-gradient: linear-gradient(
+      90deg,
+      #{$sea-blue},
+      #{$sky-blue}
+    );
+    --bd-theme-work-gradient: linear-gradient(
+      90deg,
+      #{$chocolate-brown},
+      #{$grizzly-brown}
+    );
+    --bd-theme-blog-gradient: linear-gradient(
+      90deg,
+      #{$misty-grey},
+      #{$almost-white}
+    );
+    --bd-theme-referrals-gradient: linear-gradient(
+      90deg,
+      #{$redish-brown},
+      #{$orange}
+    );
+    $nav-opaque-dark: rgba($steel-blue, 0.85);
+    --bd-theme-nav-bg-opaque: #{$nav-opaque-dark};
+    --bd-theme-nav-bg: #{$steel-blue};
+    --bd-theme-logo-bg: #{$almost-black};
+    --bd-theme-logo-active-bg: #{$misty-grey};
+  }
+
+  &.light {
+    --bd-theme-body-bg: #{$almost-white};
+    --bd-theme-text-color: #{$almost-black};
+    --bd-theme-link-color: #{$sky-blue};
+    --bd-theme-link-visited-color: #{$sea-blue};
+    --bd-theme-footer-background-blend-mode: none;
+    --bd-theme-about-heading-color: #{$sky-blue};
+    --bd-theme-work-heading-color: #{$grizzly-brown};
+    --bd-theme-blog-heading-color: #{$asphalt-grey};
+    --bd-theme-referrals-heading-color: #{$orange};
+    --bd-theme-about-gradient: linear-gradient(
+      90deg,
+      #{$sky-blue},
+      #{$sea-blue}
+    );
+    --bd-theme-work-gradient: linear-gradient(
+      90deg,
+      #{$grizzly-brown},
+      #{$chocolate-brown}
+    );
+    --bd-theme-blog-gradient: linear-gradient(
+      90deg,
+      #{$asphalt-grey},
+      #{$almost-black}
+    );
+    --bd-theme-referrals-gradient: linear-gradient(
+      90deg,
+      #{$orange},
+      #{$redish-brown}
+    );
+    $nav-opaque-light: rgba($navy-blue, 0.85);
+    --bd-theme-nav-bg-opaque: #{$nav-opaque-light};
+    --bd-theme-nav-bg: #{$navy-blue};
+    --bd-theme-logo-bg: #{$steel-blue};
+    --bd-theme-logo-active-bg: #{$almost-white};
+  }
+}

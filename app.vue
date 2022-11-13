@@ -13,6 +13,9 @@ useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} ${appConfig.titleSeparator} ${appConfig.title}` : appConfig.title;
   },
+  bodyAttrs: () => ({
+    class: 'dark'
+  }),
   meta: [
     { name: 'description', content: appConfig.description },
     { name: 'keywords', content: appConfig.keywords },
