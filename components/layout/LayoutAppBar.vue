@@ -1,20 +1,31 @@
 <template>
     <header class="app-bar">
-        <a href="#main-content" class="sr-only">Skip to main content</a>
+        <a href="#main-content" class="sr-only">{{ skipToMain }}</a>
         <NuxtLink to="/" class="home-link">
-            <img class="logo" src="~/assets/images/bear-head.svg" alt="BearDesign" />
+            <img class="logo" src="~/assets/images/bear-head.svg" :alt="logoAlt" />
         </NuxtLink>
         <nav class="main-menu">
-            <NuxtLink to="/about" class="main-menu-link about"><span class="link-text">About</span></NuxtLink>
-            <NuxtLink to="/work" class="main-menu-link work"><span class="link-text">Work</span></NuxtLink>
-            <NuxtLink to="/blog" class="main-menu-link blog"><span class="link-text">Blog</span></NuxtLink>
+            <NuxtLink to="/about" class="main-menu-link about"><span class="link-text">{{ about }}</span></NuxtLink>
+            <NuxtLink to="/work" class="main-menu-link work"><span class="link-text">{{ work }}</span></NuxtLink>
+            <NuxtLink to="/blog" class="main-menu-link blog"><span class="link-text">{{ blog }}</span></NuxtLink>
         </nav>
     </header>
 </template>
 
 <script lang="ts">
 export default {
-    name: 'LayoutAppBar'
+    name: 'LayoutAppBar',
+    async setup() {
+        const { data } = await useAsyncData('navigation', () => queryContent('navigation').find());
+
+        return {
+            about: data.value[0].about,
+            blog: data.value[0].blog,
+            work: data.value[0].work,
+            skipToMain: data.value[0].skipToMain,
+            logoAlt: data.value[0].logoAlt,
+        }
+    }
 }
 </script>
 
