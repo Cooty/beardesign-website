@@ -9,7 +9,9 @@
             <NuxtLink to="/work" class="main-menu-link work"><span class="link-text">{{ work }}</span></NuxtLink>
             <NuxtLink to="/blog" class="main-menu-link blog"><span class="link-text">{{ blog }}</span></NuxtLink>
         </nav>
-        <ThemeSwitcher />
+        <div class="theme-switch-container">
+            <ThemeSwitcher />
+        </div>
     </header>
 </template>
 
@@ -172,5 +174,14 @@ export default {
 
 .link-text {
     transition: all 0.3s ease-in-out;
+}
+
+.theme-switch-container {
+    height: 24px;
+    margin-top: 3px;
+
+    @media screen and (min-width: $bp-navigation) {
+        margin-top: 0;
+    }
 }
 </style>
