@@ -38,6 +38,7 @@ const props = withDefaults(defineProps<{
 
     &:hover,
     &:focus {
+        transform: translate3d(0, -3px, 0);
         background: linear-gradient(45deg,
             #{$sea-blue},
             #{$sky-blue});
