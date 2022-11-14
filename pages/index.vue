@@ -1,8 +1,16 @@
 <template>
     <LayoutMain>
         <UiSection id="about">
-            <UiWrapper as="article" class="bd-home-page-full-height">
-                <UiTitle sectionName="about">About me</UiTitle>
+            <UiWrapper as="article" class="bd-home-page-full-height bd-home-page-full-height--centered">
+                <UiTitle sectionName="about">{{ about.title }}</UiTitle>
+                <UiLead class="bd-hp-lead">
+                    {{ about.description }}
+                </UiLead>
+                <div>
+                    <UiButton as="a" size="l" to="/about">
+                        {{ about.body.children[2].children[0].value }}
+                    </UiButton>
+                </div>
             </UiWrapper>
         </UiSection>
         <UiSection id="work">
@@ -26,10 +34,11 @@
 </template>
 
 <script lang="ts" setup>
-const { data } = await useAsyncData('home', () => queryContent('home', 'meta').findOne());
+const { data: meta } = await useAsyncData('home', () => queryContent('home', '_meta').findOne());
+const { data: about } = await useAsyncData('homeAbout', () => queryContent('home', '_about').findOne());
 
 useHead({
-    title: data.value.title,
+    title: meta.value.title,
     htmlAttrs: () => ({
         class: 'bd-page-home'
     }),
@@ -45,5 +54,14 @@ useHead({
     min-height: calc(100vh - #{$v-gutter * 4});
     display: flex;
     flex-direction: column;
+}
+
+.bd-home-page-full-height--centered {
+    justify-content: center;
+}
+
+.bd-hp-lead {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 </style>

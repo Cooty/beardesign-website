@@ -9,7 +9,7 @@ type AllowedTags = 'div' | 'section' | 'main' | 'ul' | 'ol' | 'dl' | 'article'
 
 const props = withDefaults(defineProps<{
     as?: AllowedTags
-}>(), { as: 'div' });
+}>(), { as: 'div' })
 </script>
 
 <style scoped lang="scss">

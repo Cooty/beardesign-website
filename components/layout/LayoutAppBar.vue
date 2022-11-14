@@ -19,7 +19,7 @@
 export default {
     name: 'LayoutAppBar',
     async setup() {
-        const { data } = await useAsyncData('navigation', () => queryContent('navigation').findOne());
+        const { data } = await useAsyncData('navigation', () => queryContent('_navigation').findOne());
 
         return {
             about: data.value.about,
@@ -70,7 +70,7 @@ export default {
     background-color: var(--bd-theme-logo-bg);
     padding: $gutter-base $gutter-base * 3;
     flex: 0;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color #{$default-transition-duration} #{$default-easing};
 
     &:hover,
     &:focus {
@@ -116,6 +116,7 @@ export default {
         align-items: center;
         margin: $gutter-base $gutter-base * 2;
         font-size: 1.2rem;
+        font-weight: 500;
         color: $almost-white;
         position: relative;
 
@@ -140,7 +141,7 @@ export default {
             right: $gutter-base;
             bottom: 0;
             border-radius: $default-radius;
-            transition: all 0.3s ease-in-out;
+            transition: all #{$default-transition-duration} #{$default-easing};
             opacity: 0;
             height: 3px;
         }
@@ -173,7 +174,7 @@ export default {
 }
 
 .link-text {
-    transition: all 0.3s ease-in-out;
+    transition: all #{$default-transition-duration} #{$default-easing};
 }
 
 .theme-switch-container {

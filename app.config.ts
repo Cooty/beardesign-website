@@ -1,4 +1,4 @@
-import { title, description, keywords } from './content/global/meta.json'
+import { title, description, keywords } from './content/global/_meta.json'
 
 export interface BDAppConfig {
   title?: string
