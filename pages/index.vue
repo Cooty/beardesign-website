@@ -26,10 +26,10 @@
 </template>
 
 <script lang="ts" setup>
-const { data } = await useAsyncData('home', () => queryContent('home', 'meta').find());
+const { data } = await useAsyncData('home', () => queryContent('home', 'meta').findOne());
 
 useHead({
-    title: data.value[0].title,
+    title: data.value.title,
     htmlAttrs: () => ({
         class: 'bd-page-home'
     }),
