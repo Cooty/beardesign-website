@@ -1,6 +1,6 @@
 <template>
     <component :is="props.as" class="card">
-        <nuxt-link v-if="props.href" :to="props.href" class="ard-anchor" />
+        <nuxt-link v-if="props.href" :to="props.href" class="card-anchor" />
     </component>
 </template>
 
@@ -16,5 +16,10 @@ const props = withDefaults(defineProps<{
 </script>
 
 <style lang="sass" scoped>
-
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: $default-radius;
+    
+}
 </style>
