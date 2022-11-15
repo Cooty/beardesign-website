@@ -15,11 +15,11 @@ const props = withDefaults(defineProps<{
 })
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
 .card {
     position: relative;
     overflow: hidden;
     border-radius: $default-radius;
-    
+
 }
 </style>
