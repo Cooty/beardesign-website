@@ -3,5 +3,7 @@
   "work": "Work",
   "blog": "Blog",
   "logoAlt": "BearDesign",
-  "skipToMain": "Skip to main content"
+  "skipToMain": "Skip to main content",
+  "darkThemeLabel": "Switch to light color theme",
+  "lightThemeLabel": "Switch to dark color theme"
 }
