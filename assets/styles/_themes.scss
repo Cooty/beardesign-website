@@ -34,6 +34,11 @@ body {
     --bd-theme-nav-bg: #{$steel-blue};
     --bd-theme-logo-bg: #{$almost-black};
     --bd-theme-logo-active-bg: #{$misty-grey};
+    --bd-theme-card-bg: #{$asphalt-grey};
+    --bd-theme-tag-default-bg: #{$steel-blue};
+    --bd-theme-work-bg-color: #{$grizzly-brown};
+    --bd-theme-carousel-arrow-bg: #{$navy-blue};
+    --bd-theme-carousel-arrow-color: #{$almost-white};
   }
 
   &.light {
@@ -58,8 +63,8 @@ body {
     );
     --bd-theme-blog-gradient: linear-gradient(
       90deg,
-      #{$asphalt-grey},
-      #{$almost-black}
+      #{$navy-blue},
+      #{$steel-blue}
     );
     --bd-theme-referrals-gradient: linear-gradient(
       90deg,
@@ -71,5 +76,10 @@ body {
     --bd-theme-nav-bg: #{$navy-blue};
     --bd-theme-logo-bg: #{$steel-blue};
     --bd-theme-logo-active-bg: #{$almost-white};
+    --bd-theme-card-bg: white;
+    --bd-theme-tag-default-bg: #{$misty-grey};
+    --bd-theme-work-bg-color: #{$chocolate-brown};
+    --bd-theme-carousel-arrow-bg: #{$asphalt-grey};
+    --bd-theme-carousel-arrow-color: #{$misty-grey};
   }
 }

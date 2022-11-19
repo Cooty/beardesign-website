@@ -85,11 +85,12 @@ export default {
 
 .logo {
     display: block;
-    height: 100%;
+    width: 45;
+    height: 52px;
 
     @media screen and (min-width: $bp-navigation) {
-        width: 100%;
-        height: auto;
+        width: 64px;
+        height: 74px;
     }
 }
 

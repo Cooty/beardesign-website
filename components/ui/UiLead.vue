@@ -14,7 +14,7 @@ const typoClassName = computed(() => props.as !== 'p' ? 'p lead' : 'lead')
 
 <style scoped>
 .lead {
-    font-size: 1.4rem;
+    font-size: calc(1.4rem + 0.5vw);
     line-height: 1.3;
 }
 </style>

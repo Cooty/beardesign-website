@@ -35,6 +35,7 @@ const props = withDefaults(defineProps<{
     box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
     text-shadow: 1px 1px rgba(0, 0, 0, .2);
     transition: all #{$default-transition-duration} #{$default-easing};
+    text-align: center;
 
     &:hover,
     &:focus {

@@ -29,5 +29,9 @@ const props = withDefaults(defineProps<{
         padding-left: var(--bd-size-gutter);
         padding-right: var(--bd-size-gutter);
     }
+
+    @media screen and (min-width: $xl) {
+        max-width: 1460px;
+    }
 }
 </style>
