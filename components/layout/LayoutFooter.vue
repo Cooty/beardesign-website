@@ -18,7 +18,7 @@ export default {
     padding-bottom: calc(#{$v-gutter * 2} + #{$app-bar-height});
     scroll-snap-align: start;
     position: relative;
-    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.6) inset;
+    box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.6) inset;
 
     @media screen and (min-width: $bp-navigation) {
         padding-bottom: $v-gutter * 2;

@@ -11,11 +11,10 @@
     padding: 0;
     margin: 0;
     display: grid;
-    list-style-type: none;
     grid-auto-columns: -webkit-max-content;
     grid-auto-columns: max-content;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: var(--grid-gap);
 
     @media screen and (min-width: $md) {
         grid-template-columns: repeat(2, minmax(0, 1fr));

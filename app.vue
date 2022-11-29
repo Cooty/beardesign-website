@@ -5,6 +5,7 @@
 </template>
 
 <script lang='ts' setup>
+import { TitleTemplate } from '@unhead/schema';
 import '~/assets/styles/app.scss'
 import { BDAppConfig } from './app.config';
 import Themes from './types/Themes.type';
@@ -21,9 +22,9 @@ onMounted(() => {
 })
 
 useHead({
-  titleTemplate: (titleChunk) => {
+  titleTemplate: ((titleChunk) => {
     return titleChunk ? `${titleChunk} ${appConfig.titleSeparator} ${appConfig.title}` : appConfig.title;
-  },
+  }) as TitleTemplate,
   bodyAttrs: () => ({
     class: theme
   }),

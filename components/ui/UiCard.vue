@@ -1,5 +1,6 @@
 <template>
-    <component :is="props.as" class="card" :class="fullHeightClassName" :tabindex="props.href ? 0 : null">
+    <component :is="props.as" class="card" :class="fullHeightClassName" :tabindex="props.href ? 0 : null"
+        :style="{ maxWidth: props.maxWidth }">
         <header v-if="slots.header" class="card-header">
             <slot name="header" />
         </header>
@@ -14,16 +15,18 @@
 </template>
 
 <script setup lang="ts">
-type AllowedTags = 'div' | 'article'
+type AllowedTags = 'div' | 'article' | 'li'
 const props = withDefaults(defineProps<{
     as?: AllowedTags
     href?: string,
     external?: boolean,
     fullHeight?: boolean,
+    maxWidth?: string
 }>(), {
     as: 'article',
     external: false,
-    fullHeight: false
+    fullHeight: false,
+    maxWidth: '400px'
 })
 
 const slots = useSlots()
@@ -35,12 +38,10 @@ const fullHeightClassName = computed(() => props.fullHeight ? 'card-full-height'
 @use "sass:math";
 
 .card {
-    --padding: 1rem;
     position: relative;
     overflow: hidden;
     border-radius: $default-radius;
     background-color: var(--bd-theme-card-bg);
-    max-width: 400px;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -49,7 +50,7 @@ const fullHeightClassName = computed(() => props.fullHeight ? 'card-full-height'
 
     &-body {
         flex: 1;
-        padding: var(--padding);
+        padding: var(--card-padding);
 
         :where(h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
             margin-top: 0;
@@ -92,7 +93,7 @@ const fullHeightClassName = computed(() => props.fullHeight ? 'card-full-height'
     }
 
     &-footer {
-        padding: var(--padding);
+        padding: var(--card-padding);
     }
 
     &-anchor {

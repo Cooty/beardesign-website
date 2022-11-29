@@ -12,4 +12,7 @@
   @media screen and (min-width: #{$lg}) {
     --bd-size-gutter: #{$lg-gutter};
   }
+
+  --card-padding: 1rem;
+  --grid-gap: 1.5rem;
 }

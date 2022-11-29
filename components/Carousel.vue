@@ -1,33 +1,16 @@
 <template>
   <ClientOnly>
-    <Splide v-if="props.items && props.items.length" :options="splideOptions" :aria-label="props.label">
-      <SplideSlide v-for="item in props.items" :key="item.id">
-        <UiCard :href="item.link ? item.link : null" class="logo-carousel-item" :full-height="true">
-          <img :data-splide-lazy="item.image" :alt="item.name ? item.name : ''" width="100" height="100" class="img" />
-          <small v-if="item.name" class="label">{{ item.name }}</small>
-        </UiCard>
-      </SplideSlide>
+    <Splide :options="options" :aria-label="props.label">
+      <slot />
     </Splide>
   </ClientOnly>
 </template>
 
 <script setup lang="ts">
-import { Splide, SplideSlide, Options } from '@splidejs/vue-splide'
+import { Splide, Options } from '@splidejs/vue-splide'
 import '@splidejs/vue-splide/css'
 
-interface Logo {
-  id: string,
-  image: string,
-  name?: string,
-  link?: string
-}
-
-const props = defineProps<{
-  label: string,
-  items?: Logo[]
-}>()
-
-const splideOptions = {
+const defaultOptions = {
   rewind: false,
   loop: false,
   pagination: false,
@@ -57,15 +40,27 @@ const splideOptions = {
     }
   }
 } as Options
+
+const props = defineProps<{
+  label: string,
+  splideOptions?: Options
+}>()
+
+let options: Options;
+
+if (props.splideOptions) {
+  console.log('')
+  options = { ...defaultOptions, ...props.splideOptions }
+} else {
+  options = defaultOptions
+}
+
+console.log(options)
 </script>
 
 <style scoped lang="scss">
 .splide {
   width: 100%;
-
-  &__slide {
-    padding: 10px 0; // offset for cards' shadow
-  }
 
   & :deep(.splide__track) {
     @media screen and (max-width: 991px) {
@@ -76,6 +71,7 @@ const splideOptions = {
 
   & :deep(.splide__arrow) {
     background-color: var(--bd-theme-carousel-arrow-bg);
+    transition: all $default-transition-duration $default-easing;
   }
 
   & :deep(.splide__arrow svg) {
@@ -97,30 +93,5 @@ const splideOptions = {
   &:not(.is-overflow) :deep(.splide__list) {
     justify-content: center;
   }
-}
-
-.label {
-  font-family: $header-font-stack;
-  font-weight: 400;
-  display: block;
-  text-align: center;
-  margin-top: $gutter-base;
-  font-size: 0.6rem;
-
-  @media screen and (min-width: $lg) {
-    font-size: 0.8rem;
-  }
-}
-
-.img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40px;
-  height: 40px;
-}
-
-.logo-carousel-item :deep(.card-body) {
-  padding: 0.6rem;
 }
 </style>
