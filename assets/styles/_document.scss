@@ -27,6 +27,11 @@ a {
   color: var(--bd-theme-link-color);
   text-decoration: none;
 
+  &,
+  &.no-visited:visited {
+    color: var(--bd-theme-link-color);
+  }
+
   &:visited {
     color: var(--bd-theme-link-visited-color);
   }

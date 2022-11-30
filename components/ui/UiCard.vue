@@ -1,5 +1,5 @@
 <template>
-    <component :is="props.as" class="card" :class="fullHeightClassName" :tabindex="props.href ? 0 : null"
+    <component :is="props.as" class="card" :class="{ 'card-full-height': props.fullHeight, 'is-link': props.href }"
         :style="{ maxWidth: props.maxWidth }">
         <header v-if="slots.header" class="card-header">
             <slot name="header" />
@@ -10,7 +10,11 @@
         <footer v-if="slots.footer" class="card-footer">
             <slot name="footer" />
         </footer>
-        <nuxt-link v-if="props.href" :to="props.href" class="card-anchor" />
+        <nuxt-link v-if="props.href" :to="props.href" class="card-anchor" tabindex="-1" aria-hidden="true">
+            <span v-if="props.title" class="sr-only">
+                {{ props.title }}
+            </span>
+        </nuxt-link>
     </component>
 </template>
 
@@ -21,7 +25,8 @@ const props = withDefaults(defineProps<{
     href?: string,
     external?: boolean,
     fullHeight?: boolean,
-    maxWidth?: string
+    maxWidth?: string,
+    title?: string
 }>(), {
     as: 'article',
     external: false,
@@ -30,8 +35,6 @@ const props = withDefaults(defineProps<{
 })
 
 const slots = useSlots()
-
-const fullHeightClassName = computed(() => props.fullHeight ? 'card-full-height' : '')
 </script>
 
 <style lang="scss" scoped>
@@ -80,10 +83,9 @@ const fullHeightClassName = computed(() => props.fullHeight ? 'card-full-height'
 
     }
 
-    &[tabindex="0"] {
+    &.is-link {
 
-        &:hover,
-        &:focus {
+        &:hover {
             transform: translate3d(0, -3px, 0);
         }
     }

@@ -2,8 +2,8 @@ body {
   &.dark {
     --bd-theme-body-bg: #{$bazalt-grey};
     --bd-theme-text-color: #{$almost-white};
-    --bd-theme-link-color: #{$sea-blue};
-    --bd-theme-link-visited-color: #{$sky-blue};
+    --bd-theme-link-color: #{$sky-blue};
+    --bd-theme-link-visited-color: #{$purple};
     --bd-theme-footer-background-blend-mode: color-burn;
     --bd-theme-about-heading-color: #{$sea-blue};
     --bd-theme-work-heading-color: #{$chocolate-brown};
@@ -46,8 +46,8 @@ body {
   &.light {
     --bd-theme-body-bg: #{$almost-white};
     --bd-theme-text-color: #{$almost-black};
-    --bd-theme-link-color: #{$sky-blue};
-    --bd-theme-link-visited-color: #{$sea-blue};
+    --bd-theme-link-color: #{$sea-blue};
+    --bd-theme-link-visited-color: #{$flamingo};
     --bd-theme-footer-background-blend-mode: none;
     --bd-theme-about-heading-color: #{$sky-blue};
     --bd-theme-work-heading-color: #{$grizzly-brown};

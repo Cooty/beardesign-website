@@ -25,11 +25,15 @@
                 </UiLead>
                 <UiGrid>
                     <UiGridItem v-for="workItem in DUMMY_WORK_ITEMS" :key="workItem.title">
-                        <UiCard :href="`/work/${workItem.slug}`" :full-height="true">
+                        <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
                             <template v-if="workItem.image" #header>
                                 <img :src="workItem.image" :alt="workItem.title" />
                             </template>
-                            <UiTitle :priority="3" :appearance="6">{{ workItem.title }}</UiTitle>
+                            <UiTitle :priority="3" :appearance="6">
+                                <NuxtLink :to="`/work/${workItem.slug}`" class="no-visited">
+                                    {{ workItem.title }}
+                                </NuxtLink>
+                            </UiTitle>
                             <p class="small">
                                 {{ workItem.description }}
                             </p>
@@ -64,11 +68,16 @@
                 <UiTitle :priority="2" :appearance="1" sectionName="blog">{{ blog?.title }}</UiTitle>
                 <UiCardList v-if="DUMMY_BLOG_POSTS && DUMMY_BLOG_POSTS.length">
                     <UiCardListItem v-for="blogPost in DUMMY_BLOG_POSTS" :key="blogPost.id"
-                        :href="`/blog/${blogPost.slug}`" :class="!blogPost.image ? 'no-image' : undefined">
+                        :href="`/blog/${blogPost.slug}`" :class="!blogPost.image ? 'no-image' : undefined"
+                        :title="blogPost.title">
                         <template v-if="blogPost.image" #header>
                             <img :src="blogPost.image" :alt="blogPost.title" />
                         </template>
-                        <UiTitle :priority="3" :appearance="6">{{ blogPost.title }}</UiTitle>
+                        <UiTitle :priority="3" :appearance="6">
+                            <NuxtLink :to="`/blog/${blogPost.slug}`" class="no-visited">
+                                {{ blogPost.title }}
+                            </NuxtLink>
+                        </UiTitle>
                         <p class="small">
                             {{ blogPost.description }}
                         </p>

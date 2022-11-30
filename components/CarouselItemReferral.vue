@@ -6,7 +6,7 @@
                 <template v-if="!props.link">
                     {{ props.name }}
                 </template>
-                <NuxtLink v-else :to="props.link" target="_blank">
+                <NuxtLink v-else :to="props.link" target="_blank" class="no-visited">
                     {{ props.name }}&nbsp;
                 </NuxtLink>
                 <span class="org" v-if="props.organization">
