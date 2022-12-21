@@ -49,13 +49,10 @@ const props = defineProps<{
 let options: Options;
 
 if (props.splideOptions) {
-  console.log('')
   options = { ...defaultOptions, ...props.splideOptions }
 } else {
   options = defaultOptions
 }
-
-console.log(options)
 </script>
 
 <style scoped lang="scss">

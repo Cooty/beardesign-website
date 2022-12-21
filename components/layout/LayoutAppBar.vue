@@ -19,14 +19,14 @@
 export default {
     name: 'LayoutAppBar',
     async setup() {
-        const { data } = await useAsyncData('navigation', () => queryContent('_navigation').findOne());
+        const { data } = await useAsyncData('navigation', () => queryContent('_navigation').findOne())
 
         return {
-            about: data.value.about,
-            blog: data.value.blog,
-            work: data.value.work,
-            skipToMain: data.value.skipToMain,
-            logoAlt: data.value.logoAlt,
+            about: data?.value?.about,
+            blog: data?.value?.blog,
+            work: data?.value?.work,
+            skipToMain: data?.value?.skipToMain,
+            logoAlt: data?.value?.logoAlt,
         }
     }
 }
