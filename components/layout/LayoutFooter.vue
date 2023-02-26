@@ -81,11 +81,11 @@
                         </li>
                         <li>
                             <NuxtLink target="_blank" :to="contentLicenseLink"><img alt="Creative Commons License"
-                                    style="border-width:0"
-                                    src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></NuxtLink><br />{{
-                                            content?.licenseText
-                                    }} <NuxtLink target="_blank" :to="contentLicenseLink">{{
-        content?.licenseLink
+                                    style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+                            </NuxtLink><br />{{
+                                content?.licenseText
+                            }} <NuxtLink target="_blank" :to="contentLicenseLink">{{
+    content?.licenseLink
 }}</NuxtLink>.
                         </li>
                     </ul>
@@ -196,7 +196,7 @@ const contentLicenseLink = 'http://creativecommons.org/licenses/by-nc-sa/4.0/'
         margin: 0;
 
         >li {
-            margin-bottom: var(--content-v-gutter);
+            margin-bottom: calc(var(--content-v-gutter) * 2);
 
             &:last-of-type {
                 margin-bottom: 0;

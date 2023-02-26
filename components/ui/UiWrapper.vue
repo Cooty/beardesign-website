@@ -1,5 +1,5 @@
 <template>
-    <component :is="props.as" class="wrapper">
+    <component :is="props.as" class="wrapper" :class="{ narrow }">
         <slot />
     </component>
 </template>
@@ -8,8 +8,9 @@
 type AllowedTags = 'div' | 'section' | 'main' | 'ul' | 'ol' | 'dl' | 'article'
 
 const props = withDefaults(defineProps<{
-    as?: AllowedTags
-}>(), { as: 'div' })
+    as?: AllowedTags,
+    narrow?: boolean
+}>(), { as: 'div', narrow: false })
 </script>
 
 <style scoped lang="scss">
@@ -30,8 +31,10 @@ const props = withDefaults(defineProps<{
         padding-right: var(--bd-size-gutter);
     }
 
-    @media screen and (min-width: $xl) {
-        max-width: 1460px;
+    &:not(.narrow) {
+        @media screen and (min-width: $xl) {
+            max-width: 1460px;
+        }
     }
 }
 </style>

@@ -1,11 +1,15 @@
 <template>
     <LayoutMain>
-        <h1>
-            This here is a blog post
-        </h1>
-        <p>
-            The slug is: <code>{{ slug }}</code>
-        </p>
+        <UiWrapper as="article" class="content-section" narrow>
+            <UiTitle :priority="1" sectionName="blog">
+                This here is a blog post
+            </UiTitle>
+            <div class="content">
+                <p>
+                    The slug is: <code>{{ slug }}</code>
+                </p>
+            </div>
+        </UiWrapper>
     </LayoutMain>
 </template>
 
@@ -24,5 +28,5 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
-
+@import "@/assets/styles/content-section";
 </style>

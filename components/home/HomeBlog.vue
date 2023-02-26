@@ -1,6 +1,6 @@
 <template>
     <UiSection id="blog">
-        <UiWrapper as="article" class="bd-home-page-full-height">
+        <UiWrapper as="article" class="bd-home-page-full-height" narrow>
             <UiTitle :priority="2" :appearance="1" sectionName="blog">{{ blog?.title }}</UiTitle>
             <UiCardList v-if="DUMMY_BLOG_POSTS && DUMMY_BLOG_POSTS.length">
                 <UiCardListItem v-for="blogPost in DUMMY_BLOG_POSTS" :key="blogPost.id" :href="`/blog/${blogPost.slug}`"

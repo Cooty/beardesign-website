@@ -10,11 +10,8 @@
     flex-direction: column;
     width: 100%;
     gap: 2.5rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-    margin: 0;
+    margin: 0 auto 0 auto;
     list-style: none;
+    padding: 0;
 }
 </style>

@@ -52,3 +52,19 @@ useHead({
 
 });
 </script>
+
+<style lang="scss">
+.page {
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.4s;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    // filter: blur(1rem);
+  }
+}
+</style>

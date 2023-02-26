@@ -1,13 +1,14 @@
 <template>
     <LayoutMain>
-        <h1>Privacy Policy</h1>
+        <UiWrapper as="article" class="content-section" narrow>
+            <div class="content">
+                <ContentDoc />
+            </div>
+        </UiWrapper>
     </LayoutMain>
 </template>
 
-<script setup lang="ts">
-
-</script>
-
-<style scoped lang="scss">
-
+<style lang="scss" scoped>
+@import "@/assets/styles/content-section";
+@import "@/assets/styles/content";
 </style>

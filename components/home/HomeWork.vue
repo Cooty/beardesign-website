@@ -1,50 +1,62 @@
 <template>
     <UiSection id="work">
         <UiWrapper as="article" class="bd-home-page-full-height">
-            <UiTitle :priority="2" :appearance="1" sectionName="work">
-                {{ work?.title }}
-            </UiTitle>
-            <UiLead class="bd-home-page-lead bd-mw-800">
-                {{ work?.description }}
-            </UiLead>
-            <UiGrid>
-                <UiGridItem v-for="workItem in DUMMY_WORK_ITEMS" :key="workItem.title">
-                    <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
-                        <template v-if="workItem.image" #header>
-                            <img :src="workItem.image" :alt="workItem.title" />
-                        </template>
-                        <UiTitle :priority="3" :appearance="6">
-                            <NuxtLink :to="`/work/${workItem.slug}`" class="no-visited">
-                                {{ workItem.title }}
-                            </NuxtLink>
-                        </UiTitle>
-                        <p class="small">
-                            {{ workItem.description }}
-                        </p>
-                        <template v-if="workItem.tags" #footer>
-                            <UiTags>
-                                <UiTag v-for="tag in workItem.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
-                                    as="span" />
-                            </UiTags>
-                        </template>
-                    </UiCard>
-                </UiGridItem>
-                <UiGridItem>
-                    <UiCard :full-height="true" class="more-card work-more-bg">
-                        <UiButton as="a" size="l" to="/work">
-                            {{ work?.body.children[2].children[0].value }}
-                        </UiButton>
-                    </UiCard>
-                </UiGridItem>
-            </UiGrid>
-            <h2 class="bd-mw-800">
-                {{ work?.body.children[3].children[0].value }}
-            </h2>
-            <Carousel v-if="DUMMY_TECH_LOGOS && DUMMY_TECH_LOGOS.length"
-                :label="work?.body.children[4].children[0].value">
+            <UiTransitionIntoView>
+                <UiTitle :priority="2" :appearance="1" sectionName="work">
+                    {{ work?.title }}
+                </UiTitle>
+            </UiTransitionIntoView>
+
+            <UiTransitionIntoView>
+                <UiLead class="bd-home-page-lead bd-mw-800">
+                    {{ work?.description }}
+                </UiLead>
+            </UiTransitionIntoView>
+
+            <UiTransitionIntoView>
+                <UiGrid>
+                    <UiGridItem v-for="workItem in DUMMY_WORK_ITEMS" :key="workItem.title">
+                        <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
+                            <template v-if="workItem.image" #header>
+                                <img :src="workItem.image" :alt="workItem.title" />
+                            </template>
+                            <UiTitle :priority="3" :appearance="6">
+                                <NuxtLink :to="`/work/${workItem.slug}`" class="no-visited">
+                                    {{ workItem.title }}
+                                </NuxtLink>
+                            </UiTitle>
+                            <p class="small">
+                                {{ workItem.description }}
+                            </p>
+                            <template v-if="workItem.tags" #footer>
+                                <UiTags>
+                                    <UiTag v-for="tag in workItem.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
+                                        as="span" />
+                                </UiTags>
+                            </template>
+                        </UiCard>
+                    </UiGridItem>
+                    <UiGridItem>
+                        <UiCard :full-height="true" class="more-card work-more-bg">
+                            <UiButton as="a" size="l" to="/work">
+                                {{ work?.body.children[2].children[0].value }}
+                            </UiButton>
+                        </UiCard>
+                    </UiGridItem>
+                </UiGrid>
+            </UiTransitionIntoView>
+
+            <UiTransitionIntoView>
+                <h2 class="bd-mw-800 bd-mt-2">
+                    {{ work?.body.children[3].children[0].value }}
+                </h2>
+            </UiTransitionIntoView>
+
+            <Carousel v-if="DUMMY_TECH_LOGOS && DUMMY_TECH_LOGOS.length" :label="work?.body.children[4].children[0].value">
                 <CarouselItemCardLogo v-for="logo in DUMMY_TECH_LOGOS" :key="logo.id" :name="logo.name"
                     :image="logo.image" />
             </Carousel>
+
         </UiWrapper>
     </UiSection>
 </template>

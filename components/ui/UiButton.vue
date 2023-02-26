@@ -1,8 +1,8 @@
 <template>
-    <component v-if="props.as !== 'a'" :is="props.as" class="btn" :class="props.size">
+    <component v-if="props.as !== 'a'" :is="props.as" class="btn" :class="`${props.size} ${props.bg}`">
         <slot />
     </component>
-    <NuxtLink v-else class="btn" :class="props.size">
+    <NuxtLink v-else class="btn" :class="`${props.size} ${props.bg}`">
         <slot />
     </NuxtLink>
 </template>
@@ -10,9 +10,11 @@
 <script setup lang="ts">
 type AllowedTags = 'button' | 'a'
 type Sizes = 'm' | 'l'
+type Backgrounds = 'white'
 const props = withDefaults(defineProps<{
     as?: AllowedTags
     size?: Sizes
+    bg?: Backgrounds
 }>(), {
     as: 'button',
     size: 'm'
@@ -43,6 +45,17 @@ const props = withDefaults(defineProps<{
         background: linear-gradient(45deg,
             #{$sea-blue},
             #{$sky-blue});
+    }
+}
+
+.white {
+    color: $sky-blue;
+    text-shadow: none;
+
+    &,
+    &:hover,
+    &:focus {
+        background: white;
     }
 }
 

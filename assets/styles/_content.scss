@@ -1,0 +1,42 @@
+@import './config/mixins';
+
+.content {
+  hyphens: auto;
+
+  p,
+  li {
+    line-height: 1.5;
+  }
+
+  ol,
+  ul {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    @include fluid-font();
+
+    &:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  img,
+  svg,
+  iframe,
+  object,
+  embed,
+  video {
+    max-width: 100%;
+  }
+}
