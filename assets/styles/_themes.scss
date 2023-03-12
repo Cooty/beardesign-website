@@ -41,6 +41,7 @@ body {
     --bd-theme-carousel-arrow-color: #{$almost-white};
     --bd-theme-card-separator-color: rgba(255, 255, 255, 0.4);
     --bd-theme-card-secondary-text-color: #{$misty-grey};
+    --bd-theme-secondary-text-color: #{$misty-grey};
   }
 
   &.light {
@@ -85,5 +86,6 @@ body {
     --bd-theme-carousel-arrow-color: #{$misty-grey};
     --bd-theme-card-separator-color: rgba(0, 0, 0, 0.2);
     --bd-theme-card-secondary-text-color: #{$asphalt-grey};
+    --bd-theme-secondary-text-color: #{$stone-grey};
   }
 }

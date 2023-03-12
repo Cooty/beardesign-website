@@ -1,9 +1,15 @@
 <template>
     <LayoutMain>
+        <BlogHeroImage xs-image-url="https://picsum.photos/id/16/768/432"
+            md-image-url="https://picsum.photos/id/16/1000/500" background-image-url="https://picsum.photos/id/16/200/113"
+            alt="" />
         <UiWrapper as="article" class="content-section" narrow>
             <UiTitle :priority="1" sectionName="blog">
                 This here is a blog post
             </UiTitle>
+            <UiPostMeta>
+                <BlogPostDate datetime="2018-07-07T20:00:00" formatted-date="July 7th 2018" />
+            </UiPostMeta>
             <div class="content">
                 <p>
                     The slug is: <code>{{ slug }}</code>
@@ -29,4 +35,5 @@ useHead({
 
 <style lang="scss" scoped>
 @import "@/assets/styles/content-section";
+@import "@/assets/styles/content";
 </style>

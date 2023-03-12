@@ -16,8 +16,8 @@ const props = withDefaults(defineProps<{
 <style scoped lang="scss">
 .wrapper {
     width: 100%;
-    padding-left: $gutter-base * 3;
-    padding-right: $gutter-base * 3;
+    padding-left: var(--wrapper-gutter);
+    padding-right: var(--wrapper-gutter);
     margin-right: auto;
     margin-left: auto;
 

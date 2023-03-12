@@ -48,7 +48,7 @@ const slots = useSlots()
     display: flex;
     width: 100%;
     flex-direction: column;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: $default-box-shadow;
     transition: all #{$default-transition-duration} #{$default-easing};
 
     &-body {

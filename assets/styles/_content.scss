@@ -8,10 +8,16 @@
     line-height: 1.5;
   }
 
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
   ol,
   ul {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
     margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
   }
 
   li {
