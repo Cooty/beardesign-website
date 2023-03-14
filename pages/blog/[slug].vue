@@ -15,6 +15,10 @@
                     The slug is: <code>{{ slug }}</code>
                 </p>
             </div>
+            <UiTags class="bd-mt-2">
+                <UiTag v-for="tag in DUMMY_TAGS" :key="tag.name" :text="tag.name" :type="tag.slug" as="a"
+                    :to="`/blog/tag/${tag.slug}`" />
+            </UiTags>
         </UiWrapper>
     </LayoutMain>
 </template>
@@ -24,6 +28,17 @@ const slug = ref<string>('')
 const route = useRoute()
 
 slug.value = route.params.slug as string
+
+const DUMMY_TAGS = [
+    { name: 'JavaScript', slug: 'javascript' },
+    { name: 'TypeScript', slug: 'typescript' },
+    { name: 'Symfony', slug: 'symfony' },
+    { name: 'Leaflet.js', slug: 'leafletjs' },
+    { name: 'React', slug: 'react' },
+    { name: 'PHP', slug: 'php' },
+    { name: 'Vue', slug: 'vue' },
+    { name: 'Node.js', slug: 'nodejs' },
+]
 
 useHead({
     title: slug,
