@@ -28,6 +28,9 @@ useHead({
   bodyAttrs: () => ({
     class: theme
   }),
+  htmlAttrs: () => ({
+    lang: 'en'
+  }),
   meta: [
     { name: 'description', content: appConfig.description },
     { name: 'keywords', content: appConfig.keywords },
