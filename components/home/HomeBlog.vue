@@ -23,7 +23,7 @@
                         </UiTags>
                     </template>
                 </UiCardListItem>
-                <UiButtonRow>
+                <UiButtonRow as="li">
                     <UiButton as="a" size="l" to="/blog">
                         {{ blog?.description }}
                     </UiButton>
