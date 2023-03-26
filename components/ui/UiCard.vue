@@ -42,7 +42,6 @@ const slots = useSlots()
 
 .card {
     position: relative;
-    overflow: hidden;
     border-radius: $default-radius;
     background-color: var(--bd-theme-card-bg);
     display: flex;
