@@ -1,10 +1,17 @@
 <template>
     <CarouselCard>
         <header class="header">
-            <img :src="$props.image" :alt="props.name" class="img" />
+            <template v-if="!props.link">
+                <img :src="`${props.image}?w=120&h=120`" :alt="props.name" class="img" loading="lazy" decoding="async"
+                    width="60" height="60" />
+            </template>
+            <NuxtLink v-else :to="props.link" target="_blank">
+                <img :src="`${props.image}?w=120&h=120`" :alt="props.name" class="img" loading="lazy" decoding="async"
+                    width="60" height="60" />
+            </NuxtLink>
             <div class="meta">
                 <template v-if="!props.link">
-                    {{ props.name }}
+                    {{ props.name }}&nbsp;
                 </template>
                 <NuxtLink v-else :to="props.link" target="_blank" class="no-visited">
                     {{ props.name }}&nbsp;
@@ -58,6 +65,7 @@ const props = defineProps<{
         flex: 0;
         width: var(--img-width);
         border-radius: 100%;
+        aspect-ratio: 1 / 1;
     }
 }
 

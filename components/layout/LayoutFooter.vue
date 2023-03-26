@@ -81,7 +81,8 @@
                         </li>
                         <li>
                             <NuxtLink target="_blank" :to="contentLicenseLink"><img alt="Creative Commons License"
-                                    style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+                                    loading="lazy" decoding="async" style="border-width:0"
+                                    src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
                             </NuxtLink><br />{{
                                 content?.licenseText
                             }} <NuxtLink target="_blank" :to="contentLicenseLink">{{
