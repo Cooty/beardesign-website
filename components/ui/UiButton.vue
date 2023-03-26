@@ -1,8 +1,8 @@
 <template>
-    <component v-if="props.as !== 'a'" :is="props.as" class="btn" :class="`${props.size} ${props.bg}`">
+    <component v-if="props.as !== 'a'" :is="props.as" class="btn" :class="settingClasses">
         <slot />
     </component>
-    <NuxtLink v-else class="btn" :class="`${props.size} ${props.bg}`">
+    <NuxtLink v-else class="btn" :class="settingClasses">
         <slot />
     </NuxtLink>
 </template>
@@ -18,6 +18,10 @@ const props = withDefaults(defineProps<{
 }>(), {
     as: 'button',
     size: 'm'
+})
+
+const settingClasses = computed(() => {
+    return `${props.size ? props.size : ''} ${props.bg ? props.bg : ''}`
 })
 </script>
 
