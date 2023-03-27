@@ -34,7 +34,8 @@
                 </nuxt-link>
                 <span class="org" v-if="props.organization || props.title">
                     <template v-if="props.organization && props.title">
-                        {{ props.title }}&nbsp;@&nbsp;{{ props.organization }}
+                        <span class="nowrap">{{ props.title }}</span> <span class="nowrap">@&nbsp;{{ props.organization
+                        }}</span>
                     </template>
                     <template v-if="!props.organization && props.title">
                         {{ props.title }}
@@ -42,8 +43,26 @@
                 </span>
             </div>
         </header>
-        <ui-word-cutter class="em" as="p" :text="text" :max-word-count="54" :read-more-text="'see more'"
+        <ui-word-cutter class="em" :text="props.text" :max-word-count="maxWordCount" :read-more-text="'read more'"
             @read-more="readMoreHandler" />
+        <template v-if="isTextCropped">
+            <Teleport to="body">
+                <ui-modal :show="showModal" @close="closeModalHandler">
+                    <template #body>
+                        <p>
+                            {{ props.text }}
+                        </p>
+                    </template>
+                    <template #footer>
+                        <div :style="{ display: 'flex', justifyContent: 'flex-end', width: '100%' }">
+                            <ui-button @click="closeModalHandler">
+                                Close
+                            </ui-button>
+                        </div>
+                    </template>
+                </ui-modal>
+            </Teleport>
+        </template>
     </carousel-card>
 </template>
 
@@ -59,9 +78,17 @@ const props = defineProps<{
 
 const imageSize = 120
 const imageSizeDisplayed = imageSize / 2
+const maxWordCount = 54
+const showModal = ref<boolean>(false)
+
+const isTextCropped = computed(() => props.text.split(" ").length >= maxWordCount)
 
 function readMoreHandler() {
-    console.log('read more')
+    showModal.value = true
+}
+
+function closeModalHandler() {
+    showModal.value = false
 }
 </script>
 

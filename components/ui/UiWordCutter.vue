@@ -18,15 +18,11 @@ const props = withDefaults(defineProps<{
   maxWordCount: number,
   readMoreText: string,
 }>(), {
-  as: 'article',
+  as: 'p',
 })
 
 const words = props.text.split(" ")
 const isMoreThenMaxWords = computed(() => words.length >= props.maxWordCount)
-
-console.log(words)
-console.log(words.length)
-console.log(isMoreThenMaxWords.value)
 
 let croppedText = ''
 
@@ -34,5 +30,3 @@ if (isMoreThenMaxWords) {
   croppedText = words.slice(0, props.maxWordCount).join(" ")
 } 
 </script>
-
-<style lang="scss" scoped></style>
