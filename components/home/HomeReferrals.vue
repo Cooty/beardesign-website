@@ -1,61 +1,32 @@
 <template>
-    <UiSection id="referrals">
-        <UiWrapper as="article" class="bd-home-page-full-height">
-            <UiTitle :priority="2" :appearance="1" sectionName="referrals" class="bd-mw-800">
+    <ui-section id="referrals">
+        <ui-wrapper as="article" class="bd-home-page-full-height">
+            <ui-title :priority="2" :appearance="1" sectionName="referrals" class="bd-mw-800">
                 {{ referralsContent?.title }}
-            </UiTitle>
+            </ui-title>
 
-            <ReferralCarousel :referrals="(referrals as Referral[])"
+            <referral-carousel :referrals="(referrals as Referral[])"
                 :label="referralsContent?.body.children[2].children[0].value" />
 
-            <UiTitle :priority="2" class="bd-mw-800">{{ referralsContent?.description }}</UiTitle>
-            <LogoGrid v-if="DUMMY_CLIENT_LOGOS && DUMMY_CLIENT_LOGOS.length">
-                <LogoGridItem v-for="logo in DUMMY_CLIENT_LOGOS" :key="logo.id" :src="logo.image" :alt="logo.name"
-                    :width="logo.width" :height="logo.height" :link="logo.link" />
-            </LogoGrid>
-        </UiWrapper>
-    </UiSection>
+            <ui-title :priority="2" class="bd-mw-800">{{ referralsContent?.description }}</ui-title>
+
+            <logo-grid v-if="!pending && !error && typedFeaturedClients.length">
+                <logo-grid-item v-for="client in typedFeaturedClients" :key="client.id" :src="client.logo.image"
+                    :alt="client.name" :width="client.logo.width" :height="client.logo.height" :link="client.link" />
+            </logo-grid>
+        </ui-wrapper>
+    </ui-section>
 </template>
 
 <script setup lang="ts">
-import Referral from '~~/interfaces/Referral.interface';
+import Referral from '~~/interfaces/Referral.interface'
+import Client from '~~/interfaces/Client.interface'
 
 const { data: referrals } = await useFetch('/api/referral')
 
-const { data: referralsContent } = await useAsyncData('homeReferrals', () => queryContent('home', '_referrals').findOne())
+const { data: featuredClients, pending, error } = await useFetch('/api/client?isFeatured=true')
 
-const DUMMY_CLIENT_LOGOS = [
-    {
-        id: 'cl1',
-        name: 'K-Monitor',
-        link: 'https://k-monitor.hu/home',
-        image: 'https://via.placeholder.com/240x80',
-        width: 240,
-        height: 80
-    },
-    {
-        id: 'cl2',
-        name: 'Oetker Group',
-        link: 'https://www.oetker-group.com/en/home',
-        image: 'https://via.placeholder.com/200x80',
-        width: 200,
-        height: 80
-    },
-    {
-        id: 'cl3',
-        name: 'POSSIBLE (now Wunderman Thompson)',
-        link: 'https://possible.com',
-        image: 'https://via.placeholder.com/220x80',
-        width: 220,
-        height: 80
-    },
-    {
-        id: 'cl4',
-        name: 'HealthHero',
-        link: 'https://www.healthhero.com/',
-        image: 'https://via.placeholder.com/130x80',
-        width: 130,
-        height: 80
-    }
-]
+const typedFeaturedClients = featuredClients.value as Client[]
+
+const { data: referralsContent } = await useAsyncData('homeReferrals', () => queryContent('home', '_referrals').findOne())
 </script>
