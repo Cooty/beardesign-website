@@ -42,6 +42,7 @@ const settingClasses = computed(() => {
     text-shadow: 1px 1px rgba(0, 0, 0, .2);
     transition: all #{$default-transition-duration} #{$default-easing};
     text-align: center;
+    cursor: pointer;
 
     &:hover,
     &:focus {
