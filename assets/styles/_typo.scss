@@ -1,3 +1,19 @@
+a,
+.a {
+  color: var(--bd-theme-link-color);
+  text-decoration: none;
+  cursor: pointer;
+
+  &,
+  &.no-visited:visited {
+    color: var(--bd-theme-link-color);
+  }
+
+  &:visited {
+    color: var(--bd-theme-link-visited-color);
+  }
+}
+
 p,
 .p {
   margin-bottom: 1rem;

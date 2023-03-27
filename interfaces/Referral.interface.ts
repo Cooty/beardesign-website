@@ -2,9 +2,9 @@ interface Referral {
   id: string
   from: {
     name: string
-    title: string
+    title?: string
     link?: string
-    image: string
+    image?: string
     organization?: string
   }
   text: string
