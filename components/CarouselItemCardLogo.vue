@@ -1,6 +1,7 @@
 <template>
-    <CarouselCard :link="props.link">
-        <img :data-splide-lazy="props.image" :alt="props.name ? props.name : ''" width="100" height="100" class="img" />
+    <CarouselCard :link="props.link" :external="true">
+        <img :data-splide-lazy="props.image" :alt="props.name ? props.name : ''"
+            :style="{ aspectRatio: `${props.imageWidth} / ${props.imageHeight}` }" class="img" />
         <small v-if="props.name" class="label">{{ props.name }}</small>
     </CarouselCard>
 </template>
@@ -10,6 +11,8 @@ const props = defineProps<{
     link?: string,
     name?: string,
     image: string,
+    imageWidth: number,
+    imageHeight: number,
 }>()
 
 </script>
@@ -32,7 +35,8 @@ const props = defineProps<{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40px;
+    width: auto;
+    max-width: 100%;
     height: 40px;
 }
 

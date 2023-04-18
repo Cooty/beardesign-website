@@ -1,6 +1,7 @@
 <template>
     <SplideSlide>
-        <UiCard :href="props.link ? props.link : undefined" :full-height="true" :max-width="'none'">
+        <UiCard :href="props.link ? props.link : undefined" :full-height="true" :max-width="'none'"
+            :external="props.external">
             <slot />
         </UiCard>
     </SplideSlide>
@@ -10,7 +11,8 @@
 import { SplideSlide } from '@splidejs/vue-splide'
 
 const props = defineProps<{
-    link?: string
+    link?: string,
+    external?: boolean
 }>()
 
 </script>

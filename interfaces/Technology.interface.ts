@@ -1,10 +1,10 @@
 import Image from './Image.interface'
 
-interface Client {
+interface Technology {
   id: string
-  link: string
   name: string
+  link?: string
   logo: Image
 }
 
-export default Client
+export default Technology

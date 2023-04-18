@@ -10,7 +10,8 @@
         <footer v-if="slots.footer" class="card-footer">
             <slot name="footer" />
         </footer>
-        <nuxt-link v-if="props.href" :to="props.href" class="card-anchor" tabindex="-1" aria-hidden="true">
+        <nuxt-link v-if="props.href" :to="props.href" :target="props.external ? '_blank' : undefined" class="card-anchor"
+            tabindex="-1" aria-hidden="true">
             <span v-if="props.title" class="sr-only">
                 {{ props.title }}
             </span>

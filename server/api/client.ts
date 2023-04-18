@@ -1,6 +1,7 @@
 import sanityClient from '~~/lib/sanity-client'
+import Client from '~~/interfaces/Client.interface'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<Client[]> => {
   const query = getQuery(event)
   const isFeaturedFilter = query.isFeatured ? ' && isFeatured == true' : ''
   const featuredOrdering = query.isFeatured
@@ -17,7 +18,7 @@ export default defineEventHandler(async (event) => {
                       'logo': {
                         'width': organization->logo.asset->metadata.dimensions.width,
                         'height': organization->logo.asset->metadata.dimensions.height,
-                        'image': organization->logo.asset->url
+                        'src': organization->logo.asset->url
                       }
                     }
                   `

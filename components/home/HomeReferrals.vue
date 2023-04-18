@@ -11,7 +11,7 @@
             <ui-title :priority="2" class="bd-mw-800">{{ referralsContent?.description }}</ui-title>
 
             <logo-grid v-if="!pending && !error && typedFeaturedClients.length">
-                <logo-grid-item v-for="client in typedFeaturedClients" :key="client.id" :src="client.logo.image"
+                <logo-grid-item v-for="client in typedFeaturedClients" :key="client.id" :src="client.logo.src"
                     :alt="client.name" :width="client.logo.width" :height="client.logo.height" :link="client.link" />
             </logo-grid>
         </ui-wrapper>
