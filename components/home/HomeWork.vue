@@ -15,7 +15,7 @@
 
             <UiTransitionIntoView>
                 <UiGrid>
-                    <UiGridItem v-for="workItem in DUMMY_WORK_ITEMS" :key="workItem.title">
+                    <UiGridItem v-for="workItem in featuredPortfolioItems" :key="workItem.id">
                         <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
                             <template v-if="workItem.image" #header>
                                 <img :src="workItem.image" :alt="workItem.title" />
@@ -25,9 +25,6 @@
                                     {{ workItem.title }}
                                 </NuxtLink>
                             </UiTitle>
-                            <p class="small">
-                                {{ workItem.description }}
-                            </p>
                             <template v-if="workItem.tags" #footer>
                                 <UiTags>
                                     <UiTag v-for="tag in workItem.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
@@ -60,65 +57,16 @@
 
 <script setup lang="ts">
 const { data: work } = await useAsyncData('homeWork', () => queryContent('home', '_work').findOne())
+// TODO: Get only the first page, https://www.sanity.io/docs/paginating-with-groq
+const { data: portfolio, pending: pendingPortfolio, error: errorPortfolio } = await useFetch('/api/portfolio-item')
 
-const DUMMY_WORK_ITEMS = [
-    {
-        title: 'Some work item #1',
-        description: 'Short description for that work item',
-        slug: 'some-work-item-1',
-        image: 'https://via.placeholder.com/400x225',
-        tags: [
-            { name: 'TypeScript', slug: 'type-script' },
-            { name: 'Vue.js', slug: 'vue' },
-            { name: 'SPA', slug: 'spa' },
-        ]
-    },
-    {
-        title: 'Some work item #2',
-        description: 'Short description for that work item',
-        slug: 'some-work-item-2',
-        image: 'https://via.placeholder.com/400x225',
-        tags: [
-            { name: 'TypeScript', slug: 'type-script' },
-            { name: 'React', slug: 'react' },
-            { name: 'SPA', slug: 'spa' },
-        ]
-    },
-    {
-        title: 'Some work item #3',
-        description: 'Short description for that work item',
-        slug: 'some-work-item-3',
-        image: 'https://via.placeholder.com/400x225',
-        tags: [
-            { name: 'TypeScript', slug: 'type-script' },
-            { name: 'vanilla JS', slug: 'vanilla' },
-            { name: 'Symfony', slug: 'symfony' },
-            { name: 'devOps', slug: 'dev-ops' },
-        ]
-    },
-    {
-        title: 'Some work item #4',
-        description: 'Short description for that work item',
-        slug: 'some-work-item-4',
-        image: 'https://via.placeholder.com/400x225',
-        tags: [
-            { name: 'vanilla JS', slug: 'vanilla' },
-            { name: 'WordPress', slug: 'wordpress' },
-            { name: 'SCSS', slug: 'scss' },
-        ]
-    },
-    {
-        title: 'Some work item #5',
-        description: 'Short description for that work item',
-        slug: 'some-work-item-5',
-        image: 'https://via.placeholder.com/400x225',
-        tags: [
-            { name: 'vanilla JS', slug: 'vanilla' },
-            { name: 'WordPress', slug: 'wordpress' },
-            { name: 'SCSS', slug: 'scss' },
-        ]
+const featuredPortfolioItems = computed(() => {
+    if (errorPortfolio.value || pendingPortfolio.value || !portfolio.value || !portfolio.value.length) {
+        return []
     }
-]
+
+    return portfolio.value.splice(0, 5)
+})
 
 </script>
 
