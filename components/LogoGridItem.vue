@@ -1,9 +1,9 @@
 <template>
     <li class="logo-grid-item">
-        <img v-if="!props.link" :src="props.src" :alt="props.alt" :style="inlineStyles" class="img" loading="lazy"
+        <img v-if="!props.link" :src="resizedImage" :alt="props.alt" :style="inlineStyles" class="img" loading="lazy"
             decoding="async" />
         <nuxt-link v-else :to="props.link" target="_blank">
-            <img :src="props.src" :alt="props.alt" :style="inlineStyles" class="img" loading="lazy" decoding="async" />
+            <img :src="resizedImage" :alt="props.alt" :style="inlineStyles" class="img" loading="lazy" decoding="async" />
         </nuxt-link>
     </li>
 </template>
@@ -20,6 +20,8 @@ const props = defineProps<{
 const inlineStyles = {
     aspectRatio: `${props.width} / ${props.height}`,
 }
+
+const resizedImage = computed(() => `${props.src}?h=60`)
 </script>
 
 <style scoped lang="scss">
