@@ -4,7 +4,7 @@
   hyphens: auto;
 
   p,
-  li {
+  li:not(.splide__slide) {
     line-height: 1.5;
   }
 
@@ -13,14 +13,14 @@
   }
 
   ol,
-  ul {
+  ul:not(.splide__list) {
     &:not(:last-child) {
       margin-bottom: 1.5rem;
     }
     margin-top: 1.5rem;
   }
 
-  li {
+  li:not(.splide__list) {
     @include fluid-font();
 
     &:not(:last-child) {

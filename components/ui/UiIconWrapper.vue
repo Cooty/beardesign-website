@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
-    size: 's' | 'm' | 'l' | 'xl'
+    size?: 's' | 'm' | 'l' | 'xl'
 }>(), {
     size: 's'
 })

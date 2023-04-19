@@ -15,25 +15,7 @@ Since then I've been constantly picking up new languages, frameworks, libraries,
 
 I believe in constant learning and not to be defined by my tools. I can pick up new technologies quite fast. That being said, here's a brief (but non-exhaustive) list of technologies I've used the most or enjoy using today.
 
-- HTML5+CSS3
-- SASS (SCSS)
-- JavaScript
-- TypeScript
-- WordPress
-- Vite
-- Vue.js
-- Nuxt.js
-- React
-- Next.js
-- Storybook
-- Jest
-- Vitest
-- Cypress
-- Symfony
-- Express
-- Docker
-- Github Actions
-- Gitlab CI
+:technology-carousel
 
 ## What can I do you for?
 

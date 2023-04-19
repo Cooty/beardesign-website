@@ -5,9 +5,6 @@ export default defineNuxtConfig({
   //   // TODO: Figure out how to work with stylelint and customize the rules
   //   failOnError: false,
   // },
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-  },
   vite: {
     css: {
       preprocessorOptions: {
