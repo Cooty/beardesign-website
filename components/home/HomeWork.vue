@@ -52,9 +52,10 @@
                 </h2>
             </UiTransitionIntoView>
 
-            <Carousel v-if="DUMMY_TECH_LOGOS && DUMMY_TECH_LOGOS.length" :label="work?.body.children[4].children[0].value">
-                <CarouselItemCardLogo v-for="logo in DUMMY_TECH_LOGOS" :key="logo.id" :name="logo.name"
-                    :image="logo.image" />
+            <Carousel v-if="!pendingFeaturedTech && !errorFeaturedTech && featuredTech && featuredTech.length"
+                :label="work?.body.children[4].children[0].value">
+                <CarouselItemCardLogo v-for="tech in featuredTech" :key="tech.id" :name="tech.name" :image="tech.logo.src"
+                    :image-width="tech.logo.width" :image-height="tech.logo.height" :link="tech.link" />
             </Carousel>
 
         </UiWrapper>
@@ -123,113 +124,8 @@ const DUMMY_WORK_ITEMS = [
     }
 ]
 
-const DUMMY_TECH_LOGOS = [
-    {
-        id: 't1',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'HTML5'
-    },
-    {
-        id: 't2',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'CSS3'
-    },
-    {
-        id: 't3',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'SASS'
-    },
-    {
-        id: 't4',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'ECMA Script'
-    },
-    {
-        id: 't5',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'TypeScript'
-    },
-    {
-        id: 't6',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Vue.js'
-    },
-    {
-        id: 't7',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Vite'
-    },
-    {
-        id: 't8',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Nuxt.js'
-    },
-    {
-        id: 't9',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'React'
-    },
-    {
-        id: 't10',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Next.js'
-    },
-    {
-        id: 't11',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Storybook.js'
-    },
-    {
-        id: 't12',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Jest'
-    },
-    {
-        id: 't13',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Vitetest'
-    },
-    {
-        id: 't14',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Cypress'
-    },
-    {
-        id: 't15',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Node.js'
-    },
-    {
-        id: 't16',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Express.js'
-    },
-    {
-        id: 't17',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Sympfony'
-    },
-    {
-        id: 't18',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'WordPress'
-    },
-    {
-        id: 't19',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Docker'
-    },
-    {
-        id: 't20',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'Github Actions'
-    },
-    {
-        id: 't21',
-        image: 'https://via.placeholder.com/100x100',
-        name: 'GitLab CI'
-    },
-]
+const { data: featuredTech, pending: pendingFeaturedTech, error: errorFeaturedTech } = await useFetch('/api/technology?isFeatured=true')
+
 </script>
 
 <style lang="scss" scoped>
