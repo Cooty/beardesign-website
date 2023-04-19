@@ -120,8 +120,6 @@ const DUMMY_WORK_ITEMS = [
     }
 ]
 
-// const { data: featuredTech, pending: pendingFeaturedTech, error: errorFeaturedTech } = await useFetch('/api/technology?isFeatured=true')
-
 </script>
 
 <style lang="scss" scoped>

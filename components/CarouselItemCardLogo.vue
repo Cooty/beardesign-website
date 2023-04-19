@@ -1,6 +1,6 @@
 <template>
     <CarouselCard :link="props.link" :external="true">
-        <img :src="props.image" loading="lazy" :alt="props.name ? props.name : ''"
+        <img :src="resizedImage" loading="lazy" :alt="props.name ? props.name : ''"
             :style="{ aspectRatio: `${props.imageWidth} / ${props.imageHeight}` }" class="img" />
         <small v-if="props.name" class="label">{{ props.name }}</small>
     </CarouselCard>
@@ -15,6 +15,7 @@ const props = defineProps<{
     imageHeight: number,
 }>()
 
+const resizedImage = computed(() => `${props.image}?h=80`)
 </script>
 
 <style scoped lang="scss">
