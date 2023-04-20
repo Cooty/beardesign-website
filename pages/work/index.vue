@@ -9,9 +9,6 @@
                 <UiGrid>
                     <UiGridItem v-for="workItem in portfolio" :key="workItem.title">
                         <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
-                            <template v-if="workItem.image" #header>
-                                <img :src="workItem.image" :alt="workItem.title" />
-                            </template>
                             <UiTitle :priority="2" :appearance="6">
                                 <NuxtLink :to="`/work/${workItem.slug}`" class="no-visited">
                                     {{ workItem.title }}

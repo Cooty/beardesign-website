@@ -18,9 +18,6 @@
                     <ui-gridItem v-if="!pendingPortfolio && !errorPortfolio" v-for="portfolioItem in portfolio"
                         :key="portfolioItem.id">
                         <ui-card :href="`/work/${portfolioItem.slug}`" :full-height="true" :title="portfolioItem.title">
-                            <template v-if="portfolioItem.image" #header>
-                                <img :src="portfolioItem.image" :alt="portfolioItem.title" />
-                            </template>
                             <ui-title :priority="3" :appearance="6">
                                 <nuxt-link :to="`/work/${portfolioItem.slug}`" class="no-visited">
                                     {{ portfolioItem.title }}
