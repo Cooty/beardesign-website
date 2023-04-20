@@ -1,10 +1,13 @@
 import sanityClient from '~~/lib/sanity-client'
 
-export default defineEventHandler(async () => {
-  // TODO: Add pagination, https://www.sanity.io/docs/paginating-with-groq
+export default defineEventHandler(async (event) => {
+  const query = getQuery(event)
+  // TODO: Add proper pagination, https://www.sanity.io/docs/paginating-with-groq
+  const from = query.from || 0
+  const to = query.to || 100
   try {
     const query = `*[_type == 'portfolioItem']
-                    | order(orderOfAppearance asc)
+                    | order(orderOfAppearance asc) [${from}...${to}]
                     {
                       'id': _id,
                       title,

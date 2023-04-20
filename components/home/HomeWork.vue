@@ -1,72 +1,65 @@
 <template>
-    <UiSection id="work">
-        <UiWrapper as="article" class="bd-home-page-full-height">
-            <UiTransitionIntoView>
-                <UiTitle :priority="2" :appearance="1" sectionName="work">
+    <ui-section id="work">
+        <ui-wrapper as="article" class="bd-home-page-full-height">
+            <ui-transition-into-view>
+                <ui-title :priority="2" :appearance="1" sectionName="work">
                     {{ work?.title }}
-                </UiTitle>
-            </UiTransitionIntoView>
+                </ui-title>
+            </ui-transition-into-view>
 
-            <UiTransitionIntoView>
-                <UiLead class="bd-home-page-lead bd-mw-800">
+            <ui-transition-into-view>
+                <ui-lead class="bd-home-page-lead bd-mw-800">
                     {{ work?.description }}
-                </UiLead>
-            </UiTransitionIntoView>
+                </ui-lead>
+            </ui-transition-into-view>
 
-            <UiTransitionIntoView>
-                <UiGrid>
-                    <UiGridItem v-for="workItem in featuredPortfolioItems" :key="workItem.id">
-                        <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
-                            <template v-if="workItem.image" #header>
-                                <img :src="workItem.image" :alt="workItem.title" />
+            <ui-transition-into-view>
+                <ui-grid>
+                    <ui-gridItem v-if="!pendingPortfolio && !errorPortfolio" v-for="portfolioItem in portfolio"
+                        :key="portfolioItem.id">
+                        <ui-card :href="`/work/${portfolioItem.slug}`" :full-height="true" :title="portfolioItem.title">
+                            <template v-if="portfolioItem.image" #header>
+                                <img :src="portfolioItem.image" :alt="portfolioItem.title" />
                             </template>
-                            <UiTitle :priority="3" :appearance="6">
-                                <NuxtLink :to="`/work/${workItem.slug}`" class="no-visited">
-                                    {{ workItem.title }}
-                                </NuxtLink>
-                            </UiTitle>
-                            <template v-if="workItem.tags" #footer>
-                                <UiTags>
-                                    <UiTag v-for="tag in workItem.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
-                                        as="span" />
-                                </UiTags>
+                            <ui-title :priority="3" :appearance="6">
+                                <nuxt-link :to="`/work/${portfolioItem.slug}`" class="no-visited">
+                                    {{ portfolioItem.title }}
+                                </nuxt-link>
+                            </ui-title>
+                            <template v-if="portfolioItem.tags" #footer>
+                                <ui-tags>
+                                    <ui-tag v-for="tag in portfolioItem.tags" :key="tag.name" :text="tag.name"
+                                        :type="tag.slug" as="span" />
+                                </ui-tags>
                             </template>
-                        </UiCard>
-                    </UiGridItem>
-                    <UiGridItem>
-                        <UiCard :full-height="true" class="more-card work-more-bg">
-                            <UiButton as="a" size="l" to="/work">
+                        </ui-card>
+                    </ui-gridItem>
+                    <ui-gridItem>
+                        <ui-card :full-height="true" class="more-card work-more-bg">
+                            <ui-button as="a" size="l" to="/work">
                                 {{ work?.body.children[2].children[0].value }}
-                            </UiButton>
-                        </UiCard>
-                    </UiGridItem>
-                </UiGrid>
-            </UiTransitionIntoView>
+                            </ui-button>
+                        </ui-card>
+                    </ui-gridItem>
+                </ui-grid>
+            </ui-transition-into-view>
 
-            <UiTransitionIntoView>
+            <ui-transition-into-view>
                 <h2 class="bd-mw-800 bd-mt-2">
                     {{ work?.body.children[3].children[0].value }}
                 </h2>
-            </UiTransitionIntoView>
+            </ui-transition-into-view>
 
             <technology-carousel />
 
-        </UiWrapper>
-    </UiSection>
+        </ui-wrapper>
+    </ui-section>
 </template>
 
 <script setup lang="ts">
 const { data: work } = await useAsyncData('homeWork', () => queryContent('home', '_work').findOne())
 // TODO: Get only the first page, https://www.sanity.io/docs/paginating-with-groq
-const { data: portfolio, pending: pendingPortfolio, error: errorPortfolio } = await useFetch('/api/portfolio-item')
-
-const featuredPortfolioItems = computed(() => {
-    if (errorPortfolio.value || pendingPortfolio.value || !portfolio.value || !portfolio.value.length) {
-        return []
-    }
-
-    return portfolio.value.splice(0, 5)
-})
+const { data: portfolio, pending: pendingPortfolio, error: errorPortfolio } = await useFetch('/api/portfolio-item?to=5')
 
 </script>
 
