@@ -1,15 +1,11 @@
 <template>
-    <LayoutMain>
-        <UiWrapper as="article" narrow>
+    <layout-main>
+        <ui-wrapper as="article" narrow>
             <ui-content-section>
-                <div class="content">
-                    <ContentDoc />
-                </div>
+                <ui-content>
+                    <content-doc />
+                </ui-content>
             </ui-content-section>
-        </UiWrapper>
-    </LayoutMain>
+        </ui-wrapper>
+    </layout-main>
 </template>
-
-<style lang="scss" scoped>
-@import "@/assets/styles/content";
-</style>

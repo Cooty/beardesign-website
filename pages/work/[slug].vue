@@ -9,9 +9,9 @@
                     <ui-tags v-if="data[0].tags && data[0].tags.length" class="bd-mb-2">
                         <ui-tag v-for="tag in data[0].tags" :key="tag.name" :text="tag.name" :type="tag.slug" as="span" />
                     </ui-tags>
-                    <div v-if="blocks" class="content">
+                    <ui-content v-if="blocks" class="bd-mb-2">
                         <sanity-blocks :blocks="blocks" />
-                    </div>
+                    </ui-content>
                     <template v-if="data[0].technologies">
                         <ui-transition-into-view>
                             <ui-title :priority="3" section-name="work" class="bd-text-center">

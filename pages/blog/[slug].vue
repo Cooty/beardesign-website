@@ -11,11 +11,11 @@
                 <UiPostMeta>
                     <BlogPostDate datetime="2018-07-07T20:00:00" formatted-date="July 7th 2018" />
                 </UiPostMeta>
-                <div class="content">
+                <ui-content>
                     <p>
                         The slug is: <code>{{ slug }}</code>
                     </p>
-                </div>
+                </ui-content>
                 <UiTags class="bd-mt-2">
                     <UiTag v-for="tag in DUMMY_TAGS" :key="tag.name" :text="tag.name" :type="tag.slug" as="a"
                         :to="`/blog/tag/${tag.slug}`" />
@@ -49,7 +49,3 @@ useHead({
     ]
 })
 </script>
-
-<style lang="scss" scoped>
-@import "@/assets/styles/content";
-</style>
