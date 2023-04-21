@@ -1,32 +1,34 @@
 <template>
     <LayoutMain>
-        <UiWrapper as="article" class="content-section" narrow>
-            <UiTitle :priority="1" sectionName="blog">
-                {{ blog?.title }}
-            </UiTitle>
+        <UiWrapper as="article" narrow>
+            <ui-content-section>
+                <UiTitle :priority="1" sectionName="blog">
+                    {{ blog?.title }}
+                </UiTitle>
 
-            <UiCardList v-if="DUMMY_BLOG_POSTS && DUMMY_BLOG_POSTS.length">
-                <UiCardListItem v-for="blogPost in DUMMY_BLOG_POSTS" :key="blogPost.id" :href="`/blog/${blogPost.slug}`"
-                    :class="!blogPost.image ? 'no-image' : undefined" :title="blogPost.title">
-                    <template v-if="blogPost.image" #header>
-                        <img :src="blogPost.image" :alt="blogPost.title" />
-                    </template>
-                    <UiTitle :priority="2" :appearance="6">
-                        <NuxtLink :to="`/blog/${blogPost.slug}`" class="no-visited">
-                            {{ blogPost.title }}
-                        </NuxtLink>
-                    </UiTitle>
-                    <p class="small">
-                        {{ blogPost.description }}
-                    </p>
-                    <template v-if="blogPost.tags && blogPost.tags.length" #footer>
-                        <UiTags>
-                            <UiTag v-for="tag in blogPost.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
-                                as="span" />
-                        </UiTags>
-                    </template>
-                </UiCardListItem>
-            </UiCardList>
+                <UiCardList v-if="DUMMY_BLOG_POSTS && DUMMY_BLOG_POSTS.length">
+                    <UiCardListItem v-for="blogPost in DUMMY_BLOG_POSTS" :key="blogPost.id" :href="`/blog/${blogPost.slug}`"
+                        :class="!blogPost.image ? 'no-image' : undefined" :title="blogPost.title">
+                        <template v-if="blogPost.image" #header>
+                            <img :src="blogPost.image" :alt="blogPost.title" />
+                        </template>
+                        <UiTitle :priority="2" :appearance="6">
+                            <NuxtLink :to="`/blog/${blogPost.slug}`" class="no-visited">
+                                {{ blogPost.title }}
+                            </NuxtLink>
+                        </UiTitle>
+                        <p class="small">
+                            {{ blogPost.description }}
+                        </p>
+                        <template v-if="blogPost.tags && blogPost.tags.length" #footer>
+                            <UiTags>
+                                <UiTag v-for="tag in blogPost.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
+                                    as="span" />
+                            </UiTags>
+                        </template>
+                    </UiCardListItem>
+                </UiCardList>
+            </ui-content-section>
         </UiWrapper>
     </LayoutMain>
 </template>
@@ -88,7 +90,3 @@ const DUMMY_BLOG_POSTS = [
     }
 ]
 </script>
-
-<style lang="scss" scoped>
-@import "@/assets/styles/content-section";
-</style>
