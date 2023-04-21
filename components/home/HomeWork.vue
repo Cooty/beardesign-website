@@ -57,7 +57,6 @@
 const { data: work } = await useAsyncData('homeWork', () => queryContent('home', '_work').findOne())
 // TODO: Get only the first page, https://www.sanity.io/docs/paginating-with-groq
 const { data: portfolio, pending: pendingPortfolio, error: errorPortfolio } = await useFetch('/api/portfolio-item?to=5')
-
 </script>
 
 <style lang="scss" scoped>

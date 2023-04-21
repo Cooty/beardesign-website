@@ -2,9 +2,9 @@ import sanityClient from '~~/lib/sanity-client'
 
 export default defineEventHandler(async (event) => {
   const params = getRouterParams(event)
-  const { id } = params
+  const { slug } = params
   try {
-    const query = `*[_type == 'portfolioItem' && _id == '${id}']
+    const query = `*[_type == 'portfolioItem' && slug.current == $slug]
                     {
                       title,
                       websiteLink,
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
                     }
                   `
 
-    const response = await sanityClient.fetch(query)
+    const response = await sanityClient.fetch(query, { slug })
 
     return response
   } catch (e) {
