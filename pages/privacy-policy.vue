@@ -1,14 +1,15 @@
 <template>
     <LayoutMain>
-        <UiWrapper as="article" class="content-section" narrow>
-            <div class="content">
-                <ContentDoc />
-            </div>
+        <UiWrapper as="article" narrow>
+            <ui-content-section>
+                <div class="content">
+                    <ContentDoc />
+                </div>
+            </ui-content-section>
         </UiWrapper>
     </LayoutMain>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/content-section";
 @import "@/assets/styles/content";
 </style>

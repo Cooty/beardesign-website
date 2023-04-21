@@ -1,29 +1,31 @@
 <template>
     <LayoutMain>
-        <UiWrapper as="section" class="content-section">
-            <UiTitle :priority="1" sectionName="work">
-                {{ work?.title }}
-            </UiTitle>
+        <UiWrapper as="section">
+            <ui-content-section>
+                <UiTitle :priority="1" sectionName="work">
+                    {{ work?.title }}
+                </UiTitle>
 
-            <UiTransitionIntoView>
-                <UiGrid>
-                    <UiGridItem v-for="workItem in portfolio" :key="workItem.title">
-                        <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
-                            <UiTitle :priority="2" :appearance="6">
-                                <NuxtLink :to="`/work/${workItem.slug}`" class="no-visited">
-                                    {{ workItem.title }}
-                                </NuxtLink>
-                            </UiTitle>
-                            <template v-if="workItem.tags" #footer>
-                                <UiTags>
-                                    <UiTag v-for="tag in workItem.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
-                                        as="span" />
-                                </UiTags>
-                            </template>
-                        </UiCard>
-                    </UiGridItem>
-                </UiGrid>
-            </UiTransitionIntoView>
+                <UiTransitionIntoView>
+                    <UiGrid>
+                        <UiGridItem v-for="workItem in portfolio" :key="workItem.title">
+                            <UiCard :href="`/work/${workItem.slug}`" :full-height="true" :title="workItem.title">
+                                <UiTitle :priority="2" :appearance="6">
+                                    <NuxtLink :to="`/work/${workItem.slug}`" class="no-visited">
+                                        {{ workItem.title }}
+                                    </NuxtLink>
+                                </UiTitle>
+                                <template v-if="workItem.tags" #footer>
+                                    <UiTags>
+                                        <UiTag v-for="tag in workItem.tags" :key="tag.name" :text="tag.name"
+                                            :type="tag.slug" as="span" />
+                                    </UiTags>
+                                </template>
+                            </UiCard>
+                        </UiGridItem>
+                    </UiGrid>
+                </UiTransitionIntoView>
+            </ui-content-section>
         </UiWrapper>
     </LayoutMain>
 </template>
@@ -42,7 +44,3 @@ useHead({
 const { data: portfolio, pending: pendingPortfolio, error: errorPortfolio } = await useFetch('/api/portfolio-item')
 
 </script>
-
-<style lang="scss" scoped>
-@import "@/assets/styles/content-section";
-</style>
