@@ -1,6 +1,6 @@
 <template>
     <UiSection id="about" class="gradient-bg">
-        <UiWrapper as="article" class="bd-home-page-full-height bd-home-page-full-height--centered">
+        <UiWrapper as="article" class="">
             <UiTransitionIntoView delay="0">
                 <UiTitle style="color: white;">
                     {{ about?.title }}
@@ -45,6 +45,14 @@ const { data: about } = await useAsyncData('homeAbout', () => queryContent('home
     background: linear-gradient(45deg, #{$purple}, #{$sky-blue}, #{$orange}, #{$redish-brown});
     background-size: 300% 300%;
     animation: gradient 8s ease infinite;
-    height: 100vh;
+    min-height: 0;
+
+    &:deep(> .wrapper) {
+        min-height: calc(80vh - #{$v-gutter * 4});
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 </style>
