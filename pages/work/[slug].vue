@@ -67,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import { SanityBlocks } from 'sanity-blocks-vue-component';
+import { SanityBlocks } from 'sanity-blocks-vue-component'
 const slug = ref<string>('')
 const route = useRoute()
 
@@ -76,9 +76,9 @@ const { data, pending, error } = await useFetch(`/api/portfolio-item/${slug.valu
 const blocks = data.value[0].description
 
 useHead({
-    title: data.value[0].title,
+    title: `${data.value[0].title}`,
     meta: [
-        { name: 'description', content: 'Some description from the DB' }
+        { name: 'description', content: data.value[0].metaDescription || '' }
     ]
 })
 </script>

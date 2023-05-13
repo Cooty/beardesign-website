@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
     const query = `*[_type == 'portfolioItem' && slug.current == $slug && !(_id in path('drafts.**'))]
                     {
                       title,
+                      metaDescription,
                       websiteLink,
                       articleLink,
                       repositoryLink,
