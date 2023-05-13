@@ -72,7 +72,7 @@ const props = withDefaults(defineProps<{
         color: var(--bd-react-text-color);
     }
 
-    &-vue {
+    &-vue-js {
         background-color: var(--bd-vue-background-color);
         color: var(--bd-vue-text-color);
     }
