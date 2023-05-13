@@ -8,7 +8,7 @@ export default defineEventHandler(
     const from = query.from || 0
     const to = query.to || 100
     try {
-      const query = `*[_type == 'portfolioItem']
+      const query = `*[_type == 'portfolioItem' && !(_id in path('drafts.**'))]
                     | order(orderOfAppearance asc) [${from}...${to}]
                     {
                       'id': _id,

@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const params = getRouterParams(event)
   const { slug } = params
   try {
-    const query = `*[_type == 'portfolioItem' && slug.current == $slug]
+    const query = `*[_type == 'portfolioItem' && slug.current == $slug && !(_id in path('drafts.**'))]
                     {
                       title,
                       websiteLink,

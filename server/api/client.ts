@@ -9,7 +9,7 @@ export default defineEventHandler(async (event): Promise<Client[]> => {
     : ''
 
   try {
-    const query = `*[_type == 'client'${isFeaturedFilter}]
+    const query = `*[_type == 'client' && !(_id in path('drafts.**')) ${isFeaturedFilter}]
                     ${featuredOrdering}
                     {
                       'id': _id, 
