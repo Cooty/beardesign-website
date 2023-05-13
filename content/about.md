@@ -6,7 +6,7 @@ I'm a self-taught developer born and raised in Budapest, Hungary. I have a firm 
 
 I describe myself as a jack-of-all-trades-master-of-none, full-stack developer, who always focuses on delivering value to all stakeholders of the project in question.
 
-You can also download my [full CV here](#).
+You can also download my [full CV here](https://dl.dropbox.com/s/ebgjvfgldq8v72r/Tamas-Kuti-CV-2023.pdf).
 
 ## The details
 
@@ -24,4 +24,4 @@ I prefer to work remotely (my time zone is GMT+3), but we can discuss shorter on
 
 ## On a more personal note…
 
-Currently I live in sunny Bulgaria with my [fiancée](#) and our [four-legged companion](#). When I'm away from the keyboard, I practice the gentle art of Brazilian Jiu-Jitsu, try to break my neck on a skateboard, do some running or just hike in our beautiful surroundings with the aforementioned fiancée and dog.
+Currently I live in sunny Bulgaria with my [fiancée](https://dimana-shishkova.jimdosite.com/) and our [four-legged companion](https://www.instagram.com/todordogstoevsky/). When I'm away from the keyboard, I practice the gentle art of Brazilian Jiu-Jitsu, try to break my neck on a skateboard, do some running or just hike in our beautiful surroundings with the aforementioned fiancée and dog.
