@@ -3,7 +3,7 @@ import Referral from '~~/interfaces/Referral.interface'
 
 export default defineEventHandler(async (): Promise<Referral[]> => {
   try {
-    const query = `*[_type == 'referral'] | 
+    const query = `*[_type == 'referral' && !(_id in path('drafts.**'))] | 
                     order(orderOfAppearance asc)
                     {
                       'id': _id, 

@@ -9,7 +9,7 @@ export default defineEventHandler(async (event): Promise<Technology[]> => {
     : ''
 
   try {
-    const query = `*[_type == 'technology'${isFeaturedFilter}]
+    const query = `*[_type == 'technology' && !(_id in path('drafts.**')) ${isFeaturedFilter}]
                     ${featuredOrdering}
                     {
                       'id': _id,

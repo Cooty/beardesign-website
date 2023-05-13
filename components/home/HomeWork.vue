@@ -42,7 +42,7 @@
             </ui-transition-into-view>
 
             <ui-transition-into-view>
-                <h2 class="bd-mw-800 bd-mt-2">
+                <h2 class="bd-mw-800 bd-mt-2 bd-mb-1">
                     {{ work?.body.children[3].children[0].value }}
                 </h2>
             </ui-transition-into-view>
