@@ -2,6 +2,8 @@
 
 ## The basics
 
+<img src="/images/tamas-kuti-avatar.jpeg" alt="Portrait of Tamás Kuti" class="profile-image" />
+
 I'm a self-taught developer born and raised in Budapest, Hungary. I have a firm background in UI design and front-end development, but I don't shy away from back-end and even devOps related tasks if it comes to that.
 
 I describe myself as a jack-of-all-trades-master-of-none, full-stack developer, who always focuses on delivering value to all stakeholders of the project in question.
