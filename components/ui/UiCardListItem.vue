@@ -63,8 +63,10 @@ const slots = useSlots()
     & :deep(.card-header>img) {
         @media screen and (min-width: $md) {
             display: block;
-            width: var(--image-width);
-            height: var(--image-height);
+            max-width: var(--image-width);
+            max-height: var(--image-height);
+            object-fit: cover;
+            object-position: center center;
         }
     }
 }

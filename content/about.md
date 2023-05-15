@@ -12,7 +12,7 @@ You can also download my [full CV here](https://dl.dropbox.com/s/ebgjvfgldq8v72r
 
 ## The details
 
-My bread and butter is CSS+HTML, since this is what I've started out with way back in 2009.
+My bread and butter is CSS+HTML, since this is what I've started out with way back in 2010.
 Since then I've been constantly picking up new languages, frameworks, libraries, whatever it takes to get the job done.
 
 I believe in constant learning and not to be defined by my tools. I can pick up new technologies quite fast. That being said, here's a brief (but non-exhaustive) list of technologies I've used the most or enjoy using today.
