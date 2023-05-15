@@ -1,36 +1,37 @@
 <template>
-    <LayoutMain>
-        <UiWrapper as="article" narrow>
+    <layout-main>
+        <ui-wrapper as="article" narrow>
             <ui-content-section>
-                <UiTitle :priority="1" sectionName="blog">
+                <ui-title :priority="1" sectionName="blog">
                     {{ blog?.title }}
-                </UiTitle>
+                </ui-title>
 
-                <UiCardList v-if="DUMMY_BLOG_POSTS && DUMMY_BLOG_POSTS.length">
-                    <UiCardListItem v-for="blogPost in DUMMY_BLOG_POSTS" :key="blogPost.id" :href="`/blog/${blogPost.slug}`"
-                        :class="!blogPost.image ? 'no-image' : undefined" :title="blogPost.title">
-                        <template v-if="blogPost.image" #header>
-                            <img :src="blogPost.image" :alt="blogPost.title" />
+                <ui-card-list v-if="!pending && !error && blogPosts?.length">
+                    <ui-card-list-item v-for="blogPost in blogPosts" :key="blogPost.id" :href="`/blog/${blogPost.slug}`"
+                        :class="!blogPost.image || !blogPost.image.src ? 'no-image' : undefined" :title="blogPost.title">
+                        <template v-if="blogPost.image && blogPost.image.src" #header>
+                            <img :src="`${blogPost.image.src}?w=300&h=225`"
+                                :alt="blogPost.image.alt ? blogPost.image.alt : blogPost.title" />
                         </template>
-                        <UiTitle :priority="2" :appearance="6">
-                            <NuxtLink :to="`/blog/${blogPost.slug}`" class="no-visited">
+                        <ui-title :priority="2" :appearance="6">
+                            <nuxt-link :to="`/blog/${blogPost.slug}`" class="no-visited">
                                 {{ blogPost.title }}
-                            </NuxtLink>
-                        </UiTitle>
-                        <p class="small">
-                            {{ blogPost.description }}
+                            </nuxt-link>
+                        </ui-title>
+                        <p v-if="blogPost.excerpt" class="small">
+                            {{ blogPost.excerpt }}
                         </p>
                         <template v-if="blogPost.tags && blogPost.tags.length" #footer>
-                            <UiTags>
+                            <ui-tags>
                                 <UiTag v-for="tag in blogPost.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
                                     as="span" />
-                            </UiTags>
+                            </ui-tags>
                         </template>
-                    </UiCardListItem>
-                </UiCardList>
+                    </ui-card-list-item>
+                </ui-card-list>
             </ui-content-section>
-        </UiWrapper>
-    </LayoutMain>
+        </ui-wrapper>
+    </layout-main>
 </template>
 
 <script setup lang="ts">
@@ -43,50 +44,6 @@ useHead({
     ]
 })
 
-const DUMMY_BLOG_POSTS = [
-    {
-        id: 'b1',
-        title: 'My first blog post',
-        slug: 'my-first-blog',
-        image: 'https://via.placeholder.com/300x225',
-        description: 'In this post I write about some super important stuff',
-        tags: [
-            { name: 'JavaScript', slug: 'javascript' },
-            { name: 'Python', slug: 'python' },
-        ]
-    },
-    {
-        id: 'b2',
-        title: 'My second blog post',
-        slug: 'my-second-blog',
-        image: 'https://via.placeholder.com/300x225',
-        description: 'In this post I write about some super important stuff',
-        tags: [
-            { name: 'JavaScript', slug: 'javascript' },
-            { name: 'Python', slug: 'python' },
-            { name: 'Java', slug: 'java' },
-        ]
-    },
-    {
-        id: 'b3',
-        title: 'My third blog post has no image',
-        slug: 'my-third-blog',
-        description: 'In this post I write about some super important stuff',
-        tags: [
-            { name: 'CSS', slug: 'css' },
-            { name: 'Accessibility', slug: 'accessibility' },
-        ]
-    },
-    {
-        id: 'b4',
-        title: 'My fourth blog post',
-        slug: 'my-fourth-blog',
-        image: 'https://via.placeholder.com/300x225',
-        description: 'In this post I write about some super important stuff',
-        tags: [
-            { name: 'HTML', slug: 'html' },
-            { name: 'Node.js', slug: 'node-js' },
-        ]
-    }
-]
+// TODO: Add pagination to API call and to the UI
+const { data: blogPosts, pending, error } = await useFetch('/api/blog')
 </script>
