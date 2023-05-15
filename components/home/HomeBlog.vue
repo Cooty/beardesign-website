@@ -18,10 +18,10 @@
                         {{ blogPost.excerpt }}
                     </p>
                     <template v-if="blogPost.tags && blogPost.tags.length" #footer>
-                        <UiTags>
-                            <UiTag v-for="tag in blogPost.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
+                        <ui-tags>
+                            <ui-tag v-for="tag in blogPost.tags" :key="tag.name" :text="tag.name" :type="tag.slug"
                                 as="span" />
-                        </UiTags>
+                        </ui-tags>
                     </template>
                 </ui-card-list-item>
                 <ui-button-row as="li">
