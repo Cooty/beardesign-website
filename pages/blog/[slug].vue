@@ -19,7 +19,7 @@
                             :to="`/blog/tag/${tag.slug}`" />
                     </ui-tags>
                     <ui-content>
-                        <sanity-blocks :blocks="blocks" />
+                        <sanity-blocks :blocks="blocks" :serializers="serializers" />
                     </ui-content>
                 </ui-content-section>
             </ui-wrapper>
@@ -29,6 +29,8 @@
 
 <script setup lang="ts">
 import { SanityBlocks } from 'sanity-blocks-vue-component'
+import { Serializers } from 'sanity-blocks-vue-component/dist/types'
+import Embed from '~~/components/blocks/Embed.vue'
 
 const slug = ref<string>('')
 const route = useRoute()
@@ -40,9 +42,14 @@ const blocks = blogPost.value[0].content
 const formattedPublicationDate = computed(() => {
     const date = new Date(blogPost.value[0].publicationDate)
     const dateTimeFormat = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    //July 7th 2018
     return dateTimeFormat.format(date)
 })
+
+const serializers = {
+    types: {
+        embed: Embed
+    }
+} as unknown as Partial<Serializers>
 
 useHead({
     title: blogPost.value[0].title,
