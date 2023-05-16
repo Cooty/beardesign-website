@@ -38,6 +38,8 @@ const props = defineProps<{
     margin-right: auto;
     margin-left: auto;
     aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
 
     @media screen and (min-width: $md) {
       border-radius: $default-radius;

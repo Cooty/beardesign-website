@@ -13,7 +13,6 @@
 }
 
 h1+.post-meta {
-  margin-top: -1rem;
   margin-bottom: 1.38rem;
 }
 </style>

@@ -1,4 +1,4 @@
-# Privacy Policy
+<h1 class="main-title">Privacy Policy</h1>
 
 ## Analytics
 

@@ -6,7 +6,7 @@ export default defineEventHandler(async (): Promise<Referral[]> => {
     const query = `*[_type == 'referral' && !(_id in path('drafts.**'))] | 
                     order(orderOfAppearance asc)
                     {
-                      'id': _id, 
+                      'id': _id,
                       text, 
                       'from': {
                         'name': from->name,

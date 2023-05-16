@@ -2,9 +2,9 @@
     <LayoutMain>
         <UiWrapper as="section">
             <ui-content-section>
-                <UiTitle :priority="1" sectionName="work">
+                <ui-title :priority="1" sectionName="work" class="main-title">
                     {{ work?.title }}
-                </UiTitle>
+                </ui-title>
 
                 <UiTransitionIntoView>
                     <UiGrid>
