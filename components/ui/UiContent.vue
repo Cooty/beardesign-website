@@ -82,5 +82,12 @@
       background-color: var(--bd-theme-secondary-text-color);
     }
   }
+
+  :deep(code:not(.hljs)) {
+    background-color: var(--bd-theme-tag-default-bg);
+    padding: 0 3px;
+    border-radius: $default-radius;
+    font-family: $code-font-stack;
+  }
 }
 </style>
