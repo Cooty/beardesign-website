@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
-    <HighCode class="code" :codeValue="props.code" :scrollStyleBool="true" maxWidth="100%" width="100%"
-      :theme="theme == 'dark' ? 'light' : 'dark'" :lang="props.language" />
+    <HighCode class="code" :codeValue="props.code" :scrollStyleBool="true" maxWidth="100%" width="100%" :theme="theme"
+      :lang="props.language" />
   </ClientOnly>
 </template>
 
