@@ -55,8 +55,32 @@
   }
 
   :deep(.embed:not(:last-child)),
-  :deep(.code:not(:last-child)) {
+  :deep(.code:not(:last-child)),
+  :deep(blockquote:not(:last-child)) {
     margin-bottom: 1.5rem;
+  }
+
+  :deep(blockquote) {
+    --border-size: 4px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-left: 1rem;
+    position: relative;
+    font-style: italic;
+    font-family: $header-font-stack;
+    padding: 0 0 0 calc(1rem + var(--border-size));
+    @include fluid-font();
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: var(--border-size);
+      border-radius: $default-radius;
+      background-color: var(--bd-theme-secondary-text-color);
+    }
   }
 }
 </style>
