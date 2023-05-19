@@ -54,7 +54,8 @@
     max-width: 100%;
   }
 
-  :deep(.embed:not(:last-child)) {
+  :deep(.embed:not(:last-child)),
+  :deep(.code:not(:last-child)) {
     margin-bottom: 1.5rem;
   }
 }

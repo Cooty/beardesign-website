@@ -31,6 +31,7 @@
 import { SanityBlocks } from 'sanity-blocks-vue-component'
 import { Serializers } from 'sanity-blocks-vue-component/dist/types'
 import Embed from '~~/components/blocks/Embed.vue'
+import CodeBlock from '~~/components/blocks/CodeBlock.vue'
 
 const slug = ref<string>('')
 const route = useRoute()
@@ -47,7 +48,8 @@ const formattedPublicationDate = computed(() => {
 
 const serializers = {
     types: {
-        embed: Embed
+        embed: Embed,
+        codeBlock: CodeBlock
     }
 } as unknown as Partial<Serializers>
 
