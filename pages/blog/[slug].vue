@@ -52,7 +52,10 @@ const serializers = {
         codeBlock: CodeBlock
     },
     styles: {
-        blockquote: 'blockquote'
+        blockquote: 'blockquote',
+    },
+    marks: {
+        code: 'code'
     }
 } as unknown as Partial<Serializers>
 
