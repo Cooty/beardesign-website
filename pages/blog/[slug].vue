@@ -1,51 +1,62 @@
 <template>
-    <LayoutMain>
-        <BlogHeroImage xs-image-url="https://picsum.photos/id/16/768/432"
-            md-image-url="https://picsum.photos/id/16/1000/500" background-image-url="https://picsum.photos/id/16/200/113"
-            alt="" />
-        <UiWrapper as="article" narrow>
-            <ui-content-section>
-                <UiTitle :priority="1" sectionName="blog">
-                    This here is a blog post
-                </UiTitle>
-                <UiPostMeta>
-                    <BlogPostDate datetime="2018-07-07T20:00:00" formatted-date="July 7th 2018" />
-                </UiPostMeta>
-                <ui-content>
-                    <p>
-                        The slug is: <code>{{ slug }}</code>
-                    </p>
-                </ui-content>
-                <UiTags class="bd-mt-2">
-                    <UiTag v-for="tag in DUMMY_TAGS" :key="tag.name" :text="tag.name" :type="tag.slug" as="a"
-                        :to="`/blog/tag/${tag.slug}`" />
-                </UiTags>
-            </ui-content-section>
-        </UiWrapper>
-    </LayoutMain>
+    <layout-main>
+        <template v-if="!pending && !error">
+            <blog-hero-image v-if="blogPost[0].image && blogPost[0].image.src"
+                :xs-image-url="`${blogPost[0].image.src}?w=768&h=432&fit=max`"
+                :md-image-url="`${blogPost[0].image.src}?w=1000&h=500&fit=max`"
+                :background-image-url="blogPost[0].image.lqip" :alt="blogPost[0].image.alt || blogPost[0].title" />
+            <ui-wrapper as="article" narrow>
+                <ui-content-section>
+                    <ui-title :priority="1" sectionName="blog" class="main-title">
+                        {{ blogPost[0].title }}
+                    </ui-title>
+                    <ui-post-meta>
+                        <blog-post-date :datetime="blogPost[0].publicationDate"
+                            :formatted-date="formattedPublicationDate" />
+                    </ui-post-meta>
+                    <ui-tags class="bd-mb-2" v-if="blogPost[0].tags">
+                        <ui-tag v-for="tag in blogPost[0].tags" :key="tag.name" :text="tag.name" :type="tag.slug" as="a"
+                            :to="`/blog/tag/${tag.slug}`" />
+                    </ui-tags>
+                    <ui-content>
+                        <sanity-blocks :blocks="blocks" :serializers="serializers" />
+                    </ui-content>
+                </ui-content-section>
+            </ui-wrapper>
+        </template>
+    </layout-main>
 </template>
 
 <script setup lang="ts">
+import { SanityBlocks } from 'sanity-blocks-vue-component'
+import { Serializers } from 'sanity-blocks-vue-component/dist/types'
+import Embed from '~~/components/blocks/Embed.vue'
+import CodeBlock from '~~/components/blocks/CodeBlock.vue'
+
 const slug = ref<string>('')
 const route = useRoute()
 
 slug.value = route.params.slug as string
 
-const DUMMY_TAGS = [
-    { name: 'JavaScript', slug: 'javascript' },
-    { name: 'TypeScript', slug: 'typescript' },
-    { name: 'Symfony', slug: 'symfony' },
-    { name: 'Leaflet.js', slug: 'leafletjs' },
-    { name: 'React', slug: 'react' },
-    { name: 'PHP', slug: 'php' },
-    { name: 'Vue', slug: 'vue' },
-    { name: 'Node.js', slug: 'nodejs' },
-]
+const { data: blogPost, pending, error } = await useFetch(`/api/blog/${slug.value}`)
+const blocks = blogPost.value[0].content
+const formattedPublicationDate = computed(() => {
+    const date = new Date(blogPost.value[0].publicationDate)
+    const dateTimeFormat = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+    return dateTimeFormat.format(date)
+})
+
+const serializers = {
+    types: {
+        embed: Embed,
+        codeBlock: CodeBlock
+    }
+} as unknown as Partial<Serializers>
 
 useHead({
-    title: slug,
+    title: blogPost.value[0].title,
     meta: [
-        { name: 'description', content: 'Some description from the DB' }
+        { name: 'description', content: blogPost.value[0].excerpt }
     ]
 })
 </script>

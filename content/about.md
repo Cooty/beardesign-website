@@ -1,4 +1,4 @@
-# About me
+<h1 class="main-title">About me</h1>
 
 ## The basics
 

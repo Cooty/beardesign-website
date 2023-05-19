@@ -51,6 +51,10 @@ h6,
 h1,
 .h1 {
   @include fluid-font(2.488rem, 1);
+
+  &.main-title {
+    @include fluid-font(3rem, 1);
+  }
 }
 
 h2,

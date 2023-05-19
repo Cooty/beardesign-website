@@ -6,7 +6,7 @@
                 <ui-card-list-item v-for="blogPost in blogPosts" :key="blogPost.id" :href="`/blog/${blogPost.slug}`"
                     :class="!blogPost.image || !blogPost.image.src ? 'no-image' : undefined" :title="blogPost.title">
                     <template v-if="blogPost.image && blogPost.image.src" #header>
-                        <img :src="`${blogPost.image.src}?w=300&h=225`"
+                        <img :src="`${blogPost.image.src}?w=300&h=225&fit=max`"
                             :alt="blogPost.image.alt ? blogPost.image.alt : blogPost.title" />
                     </template>
                     <ui-title :priority="3" :appearance="6">

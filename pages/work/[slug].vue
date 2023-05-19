@@ -3,7 +3,7 @@
         <ui-wrapper as="article" class="content-section" narrow>
             <ui-content-section>
                 <template v-if="!error && !pending && data && data[0]">
-                    <ui-title :priority="1" section-name="work">
+                    <ui-title :priority="1" section-name="work" class="main-title">
                         {{ data[0].title }}
                     </ui-title>
                     <ui-tags v-if="data[0].tags && data[0].tags.length" class="bd-mb-2">
