@@ -50,6 +50,9 @@ const serializers = {
     types: {
         embed: Embed,
         codeBlock: CodeBlock
+    },
+    styles: {
+        blockquote: 'blockquote'
     }
 } as unknown as Partial<Serializers>
 
