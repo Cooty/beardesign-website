@@ -29,10 +29,7 @@
 
 <script setup lang="ts">
 import { SanityBlocks } from 'sanity-blocks-vue-component'
-import { Serializers } from 'sanity-blocks-vue-component/dist/types'
-import Embed from '~~/components/blocks/Embed.vue'
-import CodeBlock from '~~/components/blocks/CodeBlock.vue'
-import Image from '~~/components/blocks/Image.vue'
+import serializers from '~~/components/blocks/block-serializers'
 
 const slug = ref<string>('')
 const route = useRoute()
@@ -46,21 +43,6 @@ const formattedPublicationDate = computed(() => {
     const dateTimeFormat = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     return dateTimeFormat.format(date)
 })
-
-const serializers = {
-    types: {
-        embed: Embed,
-        codeBlock: CodeBlock,
-        image: Image
-    },
-    styles: {
-        blockquote: 'blockquote',
-    },
-    marks: {
-        code: 'code',
-        'strike-through': 'del',
-    }
-} as unknown as Partial<Serializers>
 
 useHead({
     title: blogPost.value[0].title,
