@@ -35,7 +35,8 @@ useHead({
     { name: 'description', content: appConfig.description },
     { name: 'keywords', content: appConfig.keywords },
     { name: 'theme-color', content: appConfig.themeColor },
-    { name: 'msapplication-TileColor', content: appConfig.themeColor }
+    { name: 'msapplication-TileColor', content: appConfig.themeColor },
+    { property: 'og:image', content: 'https://beardesign.hu/images/cover-image-generic.jpg' }
   ],
   link: [
     {
