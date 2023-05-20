@@ -56,7 +56,7 @@
                     <template v-if="blocks">
                         <ui-transition-into-view>
                             <ui-content>
-                                <sanity-blocks :blocks="blocks" />
+                                <sanity-blocks :blocks="blocks" :serializers="serializers" />
                             </ui-content>
                         </ui-transition-into-view>
                     </template>
@@ -68,6 +68,7 @@
 
 <script setup lang="ts">
 import { SanityBlocks } from 'sanity-blocks-vue-component'
+import serializers from '~~/components/blocks/block-serializers'
 const slug = ref<string>('')
 const route = useRoute()
 
