@@ -35,6 +35,7 @@ useHead({
     { name: 'description', content: appConfig.description },
     { name: 'keywords', content: appConfig.keywords },
     { name: 'theme-color', content: appConfig.themeColor },
+    { name: 'msapplication-TileColor', content: appConfig.themeColor }
   ],
   link: [
     {
@@ -50,7 +51,12 @@ useHead({
       rel: 'stylesheet',
       media: 'all',
       href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap',
-    }
+    },
+    { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' },
   ]
 
 });

@@ -13,5 +13,5 @@ export default defineAppConfig<BDAppConfig>({
   titleSeparator: '•',
   description,
   keywords,
-  themeColor: '#2e2e2e',
+  themeColor: '#b9b9b9',
 })
