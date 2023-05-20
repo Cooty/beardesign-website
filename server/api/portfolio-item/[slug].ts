@@ -1,8 +1,10 @@
-import sanityClient from '~~/lib/sanity-client'
+import useSanityClient from '~~/composables/sanity-client'
 
 export default defineEventHandler(async (event) => {
   const params = getRouterParams(event)
+  const sanityClient = useSanityClient()
   const { slug } = params
+
   try {
     const query = `*[_type == 'portfolioItem' && slug.current == $slug && !(_id in path('drafts.**'))]
                     {

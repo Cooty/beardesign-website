@@ -1,4 +1,4 @@
-import sanityClient from '~~/lib/sanity-client'
+import useSanityClient from '~~/composables/sanity-client'
 import Technology from '~~/interfaces/Technology.interface'
 
 export default defineEventHandler(async (event): Promise<Technology[]> => {
@@ -9,6 +9,7 @@ export default defineEventHandler(async (event): Promise<Technology[]> => {
     : ''
 
   try {
+    const sanityClient = useSanityClient()
     const query = `*[_type == 'technology' && !(_id in path('drafts.**')) ${isFeaturedFilter}]
                     ${featuredOrdering}
                     {

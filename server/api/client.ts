@@ -1,7 +1,8 @@
-import sanityClient from '~~/lib/sanity-client'
+import useSanityClient from '~~/composables/sanity-client'
 import Client from '~~/interfaces/Client.interface'
 
 export default defineEventHandler(async (event): Promise<Client[]> => {
+  const sanityClient = useSanityClient()
   const query = getQuery(event)
   const isFeaturedFilter = query.isFeatured ? ' && isFeatured == true' : ''
   const featuredOrdering = query.isFeatured

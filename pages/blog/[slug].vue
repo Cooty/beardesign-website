@@ -32,6 +32,7 @@ import { SanityBlocks } from 'sanity-blocks-vue-component'
 import { Serializers } from 'sanity-blocks-vue-component/dist/types'
 import Embed from '~~/components/blocks/Embed.vue'
 import CodeBlock from '~~/components/blocks/CodeBlock.vue'
+import Image from '~~/components/blocks/Image.vue'
 
 const slug = ref<string>('')
 const route = useRoute()
@@ -49,7 +50,8 @@ const formattedPublicationDate = computed(() => {
 const serializers = {
     types: {
         embed: Embed,
-        codeBlock: CodeBlock
+        codeBlock: CodeBlock,
+        image: Image
     },
     styles: {
         blockquote: 'blockquote',
