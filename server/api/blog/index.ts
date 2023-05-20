@@ -1,8 +1,9 @@
-import sanityClient from '~~/lib/sanity-client'
+import useSanityClient from '~~/composables/sanity-client'
 import BlogPostTeaser from '~~/interfaces/BlogPostTeaser.interface'
 
 export default defineEventHandler(async (event): Promise<BlogPostTeaser[]> => {
   const query = getQuery(event)
+  const sanityClient = useSanityClient()
   // TODO: Add proper pagination, https://www.sanity.io/docs/paginating-with-groq
   const from = query.from || 0
   const to = query.to || 100

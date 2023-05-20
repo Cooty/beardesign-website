@@ -55,9 +55,14 @@
   }
 
   :deep(.embed:not(:last-child)),
-  :deep(.code:not(:last-child)),
   :deep(blockquote:not(:last-child)) {
     margin-bottom: 1.5rem;
+  }
+
+  :deep(.code),
+  :deep(.cms-image) {
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
   }
 
   :deep(blockquote) {

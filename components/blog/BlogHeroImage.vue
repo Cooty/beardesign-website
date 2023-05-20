@@ -1,7 +1,9 @@
 <template>
   <header class="hero-image">
-    <img :srcset="`${props.xsImageUrl} 768w, ${props.mdImageUrl} 1000w`" sizes="(min-width: 768px) 1000px, 768px"
-      :src="props.xsImageUrl" :alt="props.alt" class="hero-image-main-image" loading="eager" decoding="async" />
+    <picture>
+      <source media="(min-width: 769px)" :srcset="mdImageUrl" />
+      <img :src="xsImageUrl" :alt="props.alt" class="hero-image-main-image" loading="eager" decoding="async" />
+    </picture>
     <div :style="{ backgroundImage: `url(${props.backgroundImageUrl})` }" class="hero-image-background-image"></div>
   </header>
 </template>

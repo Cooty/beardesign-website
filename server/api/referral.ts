@@ -1,8 +1,10 @@
-import sanityClient from '~~/lib/sanity-client'
+import useSanityClient from '~~/composables/sanity-client'
 import Referral from '~~/interfaces/Referral.interface'
 
 export default defineEventHandler(async (): Promise<Referral[]> => {
   try {
+    const sanityClient = useSanityClient()
+
     const query = `*[_type == 'referral' && !(_id in path('drafts.**'))] | 
                     order(orderOfAppearance asc)
                     {
