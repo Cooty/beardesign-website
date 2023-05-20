@@ -69,6 +69,6 @@ const { data: portfolio, pending: pendingPortfolio, error: errorPortfolio } = aw
 }
 
 .work-more-bg {
-    background: var(--bd-theme-work-bg-color);
+    background: var(--bd-theme-work-bg-color) !important;
 }
 </style>
