@@ -57,7 +57,8 @@ const serializers = {
         blockquote: 'blockquote',
     },
     marks: {
-        code: 'code'
+        code: 'code',
+        'strike-through': 'del',
     }
 } as unknown as Partial<Serializers>
 
