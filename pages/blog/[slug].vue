@@ -15,8 +15,8 @@
                             :formatted-date="formattedPublicationDate" />
                     </ui-post-meta>
                     <ui-tags class="bd-mb-2" v-if="blogPost[0].tags">
-                        <ui-tag v-for="tag in blogPost[0].tags" :key="tag.name" :text="tag.name" :type="tag.slug" as="a"
-                            :to="`/blog/tag/${tag.slug}`" />
+                        <ui-tag v-for="tag in blogPost[0].tags" :key="tag.name" :text="tag.name" :type="tag.slug"
+                            as="span" />
                     </ui-tags>
                     <ui-content>
                         <sanity-blocks :blocks="blocks" :serializers="serializers" />
