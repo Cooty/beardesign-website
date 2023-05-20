@@ -47,7 +47,8 @@ const formattedPublicationDate = computed(() => {
 useHead({
     title: blogPost.value[0].title,
     meta: [
-        { name: 'description', content: blogPost.value[0].excerpt }
+        { name: 'description', content: blogPost.value[0].excerpt },
+        { property: 'og:image', content: blogPost.value[0].image && blogPost.value[0].image.src ? `${blogPost.value[0].image.src}?w=1200&h=627&fit=max` : 'https://beardesign.hu/images/cover-image-generic.jpg' }
     ]
 })
 </script>
